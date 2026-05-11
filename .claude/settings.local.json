@@ -64,7 +64,9 @@
       "Bash(D:/Anaconda3/python.exe -c \"import ast; ast.parse\\(open\\('engines/qwen_engine.py', encoding='utf-8'\\).read\\(\\)\\); print\\('qwen_engine.py: OK'\\); ast.parse\\(open\\('services/analyzer.py', encoding='utf-8'\\).read\\(\\)\\); print\\('analyzer.py: OK'\\)\")",
       "Bash(D:/Anaconda3/python.exe test_calories.py)",
       "Bash(D:/Anaconda3/python.exe *)",
-      "Bash(git rm *)"
+      "Bash(git rm *)",
+      "Bash(git push *)",
+      "Bash(D:\\\\Anaconda3\\\\python.exe -c \"import py_compile; py_compile.compile\\('engines/qwen_engine.py', doraise=True\\); py_compile.compile\\('services/analyzer.py', doraise=True\\); print\\('OK'\\)\")"
     ]
   }
 }

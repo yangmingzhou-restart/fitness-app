@@ -13,7 +13,8 @@ import type { RootStackParamList } from '../../navigation/AppNavigator';
 
 function getImageUri(coverImage: string): string | undefined {
   if (!coverImage) return undefined;
-  return encodeURI(API_BASE_URL + coverImage);
+  const encoded = coverImage.includes('%') ? coverImage : encodeURI(coverImage);
+  return API_BASE_URL + encoded;
 }
 
 const CARD_HEIGHT = 88;
@@ -23,17 +24,27 @@ const ExerciseCard = ({ item, onPress, t }: {
   onPress: (item: ExerciseInfo) => void;
   t: (key: string) => string;
 }) => {
+  const [imgError, setImgError] = useState(false);
   const group = MUSCLE_GROUPS[item.muscleGroup as keyof typeof MUSCLE_GROUPS];
+  const imgUri = getImageUri(item.coverImage);
+
   return (
     <TouchableOpacity
       style={styles.card}
       onPress={() => onPress(item)}
       activeOpacity={0.7}
     >
-      <Image
-        source={{ uri: getImageUri(item.coverImage) }}
-        style={styles.thumb}
-      />
+      {imgUri && !imgError ? (
+        <Image
+          source={{ uri: imgUri }}
+          style={styles.thumb}
+          onError={() => setImgError(true)}
+        />
+      ) : (
+        <View style={[styles.thumb, styles.thumbPlaceholder]}>
+          <Text style={styles.thumbPlaceholderText}>🏋️</Text>
+        </View>
+      )}
       <View style={styles.cardContent}>
         <Text style={styles.exerciseName} numberOfLines={1}>{item.name}</Text>
         <Text style={styles.exerciseNameEn} numberOfLines={1}>{item.nameEn}</Text>
@@ -235,6 +246,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#e0e0e0',
     marginRight: 12,
+  },
+  thumbPlaceholder: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  thumbPlaceholderText: {
+    fontSize: 24,
   },
   cardContent: { flex: 1 },
   exerciseName: { fontSize: 16, fontWeight: '700', color: '#333' },

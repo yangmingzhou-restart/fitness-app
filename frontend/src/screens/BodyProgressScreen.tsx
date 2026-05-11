@@ -15,7 +15,15 @@ const { width: SCREEN_WIDTH } = Dimensions.get('window');
 const CHART_WIDTH = SCREEN_WIDTH - 32;
 
 function genId() { return `body_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`; }
-function todayStr() { return new Date().toISOString().slice(0, 10); }
+
+function fmtLocal(d: Date): string {
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+}
+
+function todayStr() { return fmtLocal(new Date()); }
 
 const PHOTO_DIR = `${FileSystem.documentDirectory}fitness_data/photos/`;
 
@@ -200,7 +208,7 @@ export default function BodyProgressScreen() {
     for (let i = 29; i >= 0; i--) {
       const d = new Date(today);
       d.setDate(d.getDate() - i);
-      const ds = d.toISOString().slice(0, 10);
+      const ds = fmtLocal(d);
       const label = i === 0 ? '今天' : `${d.getMonth() + 1}/${d.getDate()}`;
       days.push({ date: ds, label, value: null });
     }

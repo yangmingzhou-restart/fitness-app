@@ -183,12 +183,19 @@
     "startWorkout": "开始训练",
     "finishWorkout": "结束训练",
     "restComplete": "休息时间到！",
-    "tapToSkip": "点击跳过休息",
+    "tapToSkip": "点击跳过",
     "pause": "暂停",
     "resume": "继续",
     "restDuration": "休息时长",
     "seconds": "秒",
-    "min": "分"
+    "min": "分",
+    "tapToCustom": "点此自定义时长",
+    "customRest": "自定义休息时长",
+    "minutes": "分",
+    "setComplete": "当前组是否结束？",
+    "setCompleteHint": "请确认该组训练已完成，避免漏记训练组数",
+    "confirmDone": "已结束",
+    "alarm": "闹钟"
   },
   "common": {
     "loading": "加载中...",

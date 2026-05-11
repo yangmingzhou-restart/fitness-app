@@ -183,12 +183,19 @@
     "startWorkout": "Start Workout",
     "finishWorkout": "Finish Workout",
     "restComplete": "Rest complete!",
-    "tapToSkip": "Tap to skip rest",
+    "tapToSkip": "Tap to skip",
     "pause": "Pause",
     "resume": "Resume",
     "restDuration": "Rest Duration",
     "seconds": "s",
-    "min": "m"
+    "min": "m",
+    "tapToCustom": "Tap to customize",
+    "customRest": "Custom Rest Timer",
+    "minutes": "m",
+    "setComplete": "Set Complete?",
+    "setCompleteHint": "Please confirm this set is done to avoid missing records",
+    "confirmDone": "Done",
+    "alarm": "Alarm"
   },
   "common": {
     "loading": "Loading...",

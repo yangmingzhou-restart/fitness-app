@@ -40,6 +40,7 @@ ALLOWED_IPS = None #{"10.70.230.216", "127.0.0.1", "::1"}
 BASIC_AUTH_USER = "test"
 BASIC_AUTH_PASS = "ymzandcmftest"
 PUBLIC_PATHS = {"/health", "/"}
+PUBLIC_PREFIXES = {"/videos/"}
 
 
 @asynccontextmanager
@@ -89,7 +90,7 @@ class SecurityMiddleware(BaseHTTPMiddleware):
     """IP whitelist + Basic Auth for all non-public paths."""
 
     async def dispatch(self, request: Request, call_next):
-        if request.url.path in PUBLIC_PATHS:
+        if request.url.path in PUBLIC_PATHS or any(request.url.path.startswith(p) for p in PUBLIC_PREFIXES):
             return await call_next(request)
 
         # 1. IP whitelist check

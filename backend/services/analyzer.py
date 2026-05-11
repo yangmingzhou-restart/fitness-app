@@ -104,6 +104,11 @@ class AnalyzerService:
         )
         total_calories = _calc_calories(total_macros.proteinG, total_macros.carbsG, total_macros.fatG)
 
+        logger.info(
+            f"[总热量对比] 本地计算: {total_calories:.1f}kcal = "
+            f"P({total_macros.proteinG:.1f}g×4) + C({total_macros.carbsG:.1f}g×4) + F({total_macros.fatG:.1f}g×9)"
+        )
+
         return AnalysisResult(
             foods=foods,
             totalEstimatedCalories=total_calories,

@@ -25,7 +25,14 @@ interface ExerciseRecord {
   notes: string;
 }
 
-const today = () => new Date().toISOString().slice(0, 10);
+function fmtLocal(d: Date): string {
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+}
+
+const today = () => fmtLocal(new Date());
 const genId = () => `rec_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 
 function fmtDate(d: string) {
@@ -46,15 +53,32 @@ export default function ExerciseRecordScreen() {
   const [expandedStates, setExpandedStates] = useState<Record<string, boolean>>({});
 
   // ---- Workout Timer ----
-  const [timerState, setTimerState] = useState<'idle' | 'active' | 'resting'>('idle');
+  const [timerState, setTimerState] = useState<'idle' | 'active' | 'resting' | 'alarm'>('idle');
   const [tick, setTick] = useState(0);
   const [restDuration, setRestDuration] = useState(90);
+  const [alarmDuration, setAlarmDuration] = useState(30);
+  const [showTimerInput, setShowTimerInput] = useState(false);
+  const [restMinutes, setRestMinutes] = useState('1');
+  const [restSeconds, setRestSeconds] = useState('30');
+  const [showSetComplete, setShowSetComplete] = useState(false);
+  const setCompleteAlertShown = useRef(false);
   const startTimeRef = useRef(0);
   const restEndRef = useRef(0);
+  const alarmEndRef = useRef(0);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  const applyCustomRest = () => {
+    const m = parseInt(restMinutes) || 0;
+    const s = parseInt(restSeconds) || 0;
+    const total = m * 60 + s;
+    setRestDuration(total || 90);
+    setShowTimerInput(false);
+  };
+
   const cycleRestDuration = () => {
-    setRestDuration((prev) => (prev === 60 ? 90 : prev === 90 ? 120 : 60));
+    const presets = [60, 90, 120];
+    const idx = presets.indexOf(restDuration);
+    setRestDuration(presets[(idx + 1) % presets.length]);
   };
 
   const startWorkout = () => {
@@ -71,9 +95,23 @@ export default function ExerciseRecordScreen() {
     setTimerState('active');
   };
 
+  const skipAlarm = () => {
+    setTimerState('active');
+    setShowSetComplete(false);
+    setCompleteAlertShown.current = false;
+  };
+
+  const dismissSetComplete = () => {
+    setTimerState('active');
+    setShowSetComplete(false);
+    setCompleteAlertShown.current = false;
+  };
+
   const finishWorkout = () => {
     setTimerState('idle');
     setTick(0);
+    setShowSetComplete(false);
+    setCompleteAlertShown.current = false;
   };
 
   // Timer tick
@@ -90,13 +128,38 @@ export default function ExerciseRecordScreen() {
     };
   }, [timerState]);
 
-  // Check rest completion
+  // Check rest completion — vibrate in last 3s, then start alarm
   useEffect(() => {
-    if (timerState === 'resting' && Date.now() >= restEndRef.current) {
+    if (timerState !== 'resting') return;
+    const remaining = Math.max(0, Math.ceil((restEndRef.current - Date.now()) / 1000));
+    if (remaining <= 3 && remaining >= 1) {
+      Vibration.vibrate(200);
+    } else if (Date.now() >= restEndRef.current) {
       Vibration.vibrate(500);
+      alarmEndRef.current = Date.now() + alarmDuration * 1000;
+      setTimerState('alarm');
+    }
+  }, [tick, timerState, alarmDuration]);
+
+  // Check alarm completion
+  useEffect(() => {
+    if (timerState !== 'alarm') return;
+    if (Date.now() >= alarmEndRef.current) {
       setTimerState('active');
+      setShowSetComplete(true);
     }
   }, [tick, timerState]);
+
+  // Show set-complete prompt (guard with ref to prevent duplicate alerts)
+  useEffect(() => {
+    if (!showSetComplete || setCompleteAlertShown.current) return;
+    setCompleteAlertShown.current = true;
+    Alert.alert(
+      t('workoutTimer.setComplete'),
+      t('workoutTimer.setCompleteHint'),
+      [{ text: t('workoutTimer.confirmDone'), onPress: dismissSetComplete }]
+    );
+  }, [showSetComplete]);
 
   // Cleanup on unmount
   useEffect(() => {
@@ -107,6 +170,9 @@ export default function ExerciseRecordScreen() {
   const remainingRest = timerState === 'resting'
     ? Math.max(0, Math.ceil((restEndRef.current - Date.now()) / 1000))
     : restDuration;
+  const remainingAlarm = timerState === 'alarm'
+    ? Math.max(0, Math.ceil((alarmEndRef.current - Date.now()) / 1000))
+    : alarmDuration;
 
   const formatTime = (totalSec: number) => {
     const m = Math.floor(totalSec / 60);
@@ -187,9 +253,15 @@ export default function ExerciseRecordScreen() {
   };
 
   const addSet = async (record: ExerciseRecord) => {
+    const lastSet = record.sets.length > 0 ? record.sets[record.sets.length - 1] : null;
     const updated = {
       ...record,
-      sets: [...record.sets, { weight: 0, reps: 0, rpe: null, completed: false }],
+      sets: [...record.sets, {
+        weight: lastSet ? lastSet.weight : 0,
+        reps: lastSet ? lastSet.reps : 0,
+        rpe: null,
+        completed: false,
+      }],
     };
     await saveExerciseRecord(updated);
     loadRecords();
@@ -231,7 +303,7 @@ export default function ExerciseRecordScreen() {
   const changeDate = (offset: number) => {
     const d = new Date(date);
     d.setDate(d.getDate() + offset);
-    setDate(d.toISOString().slice(0, 10));
+    setDate(fmtLocal(d));
   };
 
   const handleToggleComplete = async (record: ExerciseRecord, si: number) => {
@@ -449,17 +521,93 @@ export default function ExerciseRecordScreen() {
                   <Text style={styles.timerSkipText}>{t('workoutTimer.tapToSkip')}</Text>
                 </TouchableOpacity>
               </View>
-            ) : (
-              <TouchableOpacity onPress={cycleRestDuration}>
-                <Text style={styles.restSetting}>
-                  {t('workoutTimer.restDuration')}: {restDuration}{t('workoutTimer.seconds')}
+            ) : timerState === 'alarm' ? (
+              <View style={styles.timerRestRow}>
+                <View style={[styles.timerRestIndicator, { backgroundColor: '#FF5722' }]} />
+                <Text style={[styles.timerRestText, { color: '#FF5722' }]}>
+                  {t('workoutTimer.alarm')}: {formatTime(remainingAlarm)}
                 </Text>
-              </TouchableOpacity>
+                <TouchableOpacity onPress={skipAlarm} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
+                  <Text style={styles.timerSkipText}>{t('workoutTimer.tapToSkip')}</Text>
+                </TouchableOpacity>
+              </View>
+            ) : (
+              <View>
+                <TouchableOpacity onPress={cycleRestDuration} onLongPress={() => setShowTimerInput(true)}>
+                  <Text style={styles.restSetting}>
+                    {t('workoutTimer.restDuration')}: {formatTime(restDuration)}
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => setShowTimerInput(true)}>
+                  <Text style={styles.restCustomHint}>{t('workoutTimer.tapToCustom')}</Text>
+                </TouchableOpacity>
+              </View>
             )}
           </View>
           <TouchableOpacity style={styles.finishBtn} onPress={finishWorkout}>
             <Text style={styles.finishBtnText}>{t('workoutTimer.finishWorkout')}</Text>
           </TouchableOpacity>
+        </View>
+      )}
+
+      {/* Custom Rest Timer Modal */}
+      {showTimerInput && (
+        <View style={styles.timerModalOverlay}>
+          <View style={styles.timerModal}>
+            <Text style={styles.timerModalTitle}>{t('workoutTimer.customRest')}</Text>
+            <View style={styles.timerInputRow}>
+              <View style={styles.timerInputGroup}>
+                <Text style={styles.timerInputLabel}>{t('workoutTimer.minutes')}</Text>
+                <TextInput
+                  style={styles.timerFieldInput}
+                  keyboardType="numeric"
+                  value={restMinutes}
+                  onChangeText={setRestMinutes}
+                  placeholder="0"
+                  placeholderTextColor="#999"
+                  maxLength={2}
+                />
+              </View>
+              <Text style={styles.timerColon}>:</Text>
+              <View style={styles.timerInputGroup}>
+                <Text style={styles.timerInputLabel}>{t('workoutTimer.seconds')}</Text>
+                <TextInput
+                  style={styles.timerFieldInput}
+                  keyboardType="numeric"
+                  value={restSeconds}
+                  onChangeText={setRestSeconds}
+                  placeholder="0"
+                  placeholderTextColor="#999"
+                  maxLength={2}
+                />
+              </View>
+            </View>
+            <View style={styles.timerPresetRow}>
+              {[60, 90, 120].map((sec) => (
+                <TouchableOpacity
+                  key={sec}
+                  style={[styles.timerPresetChip, restDuration === sec && styles.timerPresetChipActive]}
+                  onPress={() => {
+                    setRestDuration(sec);
+                    setRestMinutes(String(Math.floor(sec / 60)));
+                    setRestSeconds(String(sec % 60));
+                  }}
+                >
+                  <Text style={[styles.timerPresetText, restDuration === sec && styles.timerPresetTextActive]}>
+                    {formatTime(sec)}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+            <View style={styles.timerModalActions}>
+              <TouchableOpacity style={styles.cancelBtn} onPress={() => setShowTimerInput(false)}>
+                <Text style={styles.cancelBtnText}>{t('common.cancel')}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.confirmBtn} onPress={applyCustomRest}>
+                <Text style={styles.confirmBtnText}>{t('common.confirm')}</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
       )}
     </View>
@@ -672,4 +820,48 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   finishBtnText: { color: '#fff', fontSize: 13, fontWeight: '600' },
+  restCustomHint: { fontSize: 10, color: '#4CAF50', marginTop: 2 },
+  // Timer custom modal
+  timerModalOverlay: {
+    position: 'absolute',
+    top: 0, left: 0, right: 0, bottom: 0,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 100,
+  },
+  timerModal: {
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 20,
+    width: '85%',
+    maxWidth: 340,
+  },
+  timerModalTitle: { fontSize: 17, fontWeight: '700', color: '#333', textAlign: 'center', marginBottom: 16 },
+  timerInputRow: { flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center', gap: 12, marginBottom: 16 },
+  timerInputGroup: { alignItems: 'center', gap: 4 },
+  timerInputLabel: { fontSize: 12, color: '#999' },
+  timerFieldInput: {
+    backgroundColor: '#f5f5f5',
+    borderRadius: 10,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    fontSize: 28,
+    fontWeight: '700',
+    color: '#333',
+    width: 80,
+    textAlign: 'center',
+  },
+  timerColon: { fontSize: 28, fontWeight: '700', color: '#333', paddingBottom: 12 },
+  timerPresetRow: { flexDirection: 'row', justifyContent: 'center', gap: 10, marginBottom: 16 },
+  timerPresetChip: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 12,
+    backgroundColor: '#f0f0f0',
+  },
+  timerPresetChipActive: { backgroundColor: '#4CAF50' },
+  timerPresetText: { fontSize: 14, fontWeight: '600', color: '#555' },
+  timerPresetTextActive: { color: '#fff' },
+  timerModalActions: { flexDirection: 'row', justifyContent: 'flex-end', gap: 10, marginTop: 4 },
 });

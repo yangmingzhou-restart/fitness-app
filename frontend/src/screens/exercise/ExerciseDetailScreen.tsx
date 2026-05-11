@@ -60,17 +60,34 @@ export default function ExerciseDetailScreen() {
     }
   };
 
-  const handleVideoPress = async (video: { angle: string; url: string }) => {
-    setVideoLoading(true);
-    setVideoError(false);
+  useEffect(() => {
+    if (!selectedVideo) return;
+    let cancelled = false;
+    (async () => {
+      setVideoLoading(true);
+      setVideoError(false);
+      try {
+        await player.replaceAsync({ uri: encodeURI(API_BASE_URL + selectedVideo.url) });
+        if (!cancelled) player.play();
+      } catch {
+        if (!cancelled) {
+          setVideoLoading(false);
+          setVideoError(true);
+        }
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [selectedVideo]);
+
+  const handleVideoPress = (video: { angle: string; url: string }) => {
     setSelectedVideo(video);
-    try {
-      await player.replaceAsync({ uri: encodeURI(API_BASE_URL + video.url) });
-      player.play();
-    } catch {
-      setVideoLoading(false);
-      setVideoError(true);
-    }
+  };
+
+  const handleCloseVideo = () => {
+    player.pause();
+    setSelectedVideo(null);
+    setVideoLoading(false);
+    setVideoError(false);
   };
 
   const group = exercise
@@ -145,12 +162,12 @@ export default function ExerciseDetailScreen() {
         <Modal
           visible={selectedVideo !== null}
           animationType="fade"
-          onRequestClose={() => setSelectedVideo(null)}
+          onRequestClose={handleCloseVideo}
         >
           <View style={styles.videoModal}>
             <TouchableOpacity
               style={styles.videoCloseBtn}
-              onPress={() => setSelectedVideo(null)}
+              onPress={handleCloseVideo}
             >
               <Text style={styles.videoCloseText}>✕</Text>
             </TouchableOpacity>

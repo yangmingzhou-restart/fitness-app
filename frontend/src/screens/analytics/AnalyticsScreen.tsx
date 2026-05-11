@@ -13,18 +13,43 @@ interface Stats {
 
 const SCREEN_W = Dimensions.get('window').width;
 
-function getWeekRange(): { start: string; end: string } {
-  const now = new Date();
-  const end = now.toISOString().slice(0, 10);
-  const start = new Date(now.getTime() - 6 * 86400000).toISOString().slice(0, 10);
-  return { start, end };
+function fmtLocal(d: Date): string {
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
 }
 
-function getMonthRange(): { start: string; end: string } {
+function getWeekRange(): { start: string; end: string } {
   const now = new Date();
-  const end = now.toISOString().slice(0, 10);
-  const start = new Date(now.getTime() - 29 * 86400000).toISOString().slice(0, 10);
-  return { start, end };
+  const dayOfWeek = now.getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
+  const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+  const monday = new Date(now);
+  monday.setDate(now.getDate() + mondayOffset);
+  const sunday = new Date(monday);
+  sunday.setDate(monday.getDate() + 6);
+  return { start: fmtLocal(monday), end: fmtLocal(sunday) };
+}
+
+function getMonthRange(firstRecordDate: string | null): { start: string; end: string } {
+  const now = new Date();
+  const end = fmtLocal(now);
+
+  if (!firstRecordDate) {
+    const start = new Date(now);
+    start.setDate(now.getDate() - 29);
+    return { start: fmtLocal(start), end };
+  }
+
+  const firstDate = new Date(firstRecordDate);
+  const anchorDay = firstDate.getDate();
+
+  const start = new Date(now.getFullYear(), now.getMonth(), anchorDay);
+  if (start > now) {
+    start.setMonth(start.getMonth() - 1);
+  }
+
+  return { start: fmtLocal(start), end };
 }
 
 function getDayLabel(dateStr: string, lang: string): string {
@@ -47,8 +72,13 @@ export default function AnalyticsScreen() {
   }, [period]);
 
   const loadStats = async () => {
-    const range = period === 'week' ? getWeekRange() : getMonthRange();
     const allRecords = await getExerciseRecords();
+
+    const firstRecordDate = allRecords.length > 0
+      ? allRecords.reduce((earliest, r) => r.date < earliest ? r.date : earliest, allRecords[0].date)
+      : null;
+
+    const range = period === 'week' ? getWeekRange() : getMonthRange(firstRecordDate);
     const filtered = allRecords.filter((r) => r.date >= range.start && r.date <= range.end);
 
     // Daily frequency
@@ -56,7 +86,7 @@ export default function AnalyticsScreen() {
     const start = new Date(range.start);
     const end = new Date(range.end);
     for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
-      dateMap.set(d.toISOString().slice(0, 10), 0);
+      dateMap.set(fmtLocal(d), 0);
     }
     filtered.forEach((r) => {
       dateMap.set(r.date, (dateMap.get(r.date) || 0) + 1);
