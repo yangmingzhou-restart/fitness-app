@@ -1,0 +1,47 @@
+{
+  "expo": {
+    "name": "食物热量识别",
+    "slug": "food-calorie-analyzer",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1a1a1a"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "需要使用相机来拍摄食物照片以识别热量",
+        "NSPhotoLibraryUsageDescription": "需要访问相册来选择食物照片"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1a1a1a"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "usesCleartextTraffic": true,
+      "permissions": [
+        "android.permission.CAMERA"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "需要使用相机来拍摄食物照片以识别热量"
+        }
+      ],
+      "expo-video"
+    ],
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}

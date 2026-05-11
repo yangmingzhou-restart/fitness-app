@@ -1,0 +1,214 @@
+{
+  "_description": "常见食物营养成分数据库（每100g熟食）。热量由系统自动计算（蛋白×4+碳水×4+脂肪×9），无需填写。",
+  "_usage": "添加新食物：在下方 foods 数组中新增一条记录。name 为中文名，nameEn 为英文名（可选），aliases 为别名列表（可选，用于模糊匹配）。",
+  "foods": [
+    {
+      "name": "米饭",
+      "nameEn": "Cooked Rice",
+      "aliases": ["白米饭", "熟米饭", "蒸米饭", "白饭", "杂粮饭", "黑米饭", "紫米饭", "糙米饭", "小米饭", "黑米杂粮饭"],
+      "proteinGPer100g": 2.6,
+      "carbsGPer100g": 28.0,
+      "fatGPer100g": 0.3
+    },
+    {
+      "name": "馒头",
+      "nameEn": "Steamed Bun",
+      "aliases": ["白馒头", "刀切馒头", "蒸馒头", "馍"],
+      "proteinGPer100g": 7.0,
+      "carbsGPer100g": 44.0,
+      "fatGPer100g": 1.0
+    },
+    {
+      "name": "面条",
+      "nameEn": "Cooked Noodles",
+      "aliases": ["煮面条", "汤面", "拌面", "捞面", "挂面"],
+      "proteinGPer100g": 4.5,
+      "carbsGPer100g": 25.0,
+      "fatGPer100g": 0.8
+    },
+    {
+      "name": "水煮蛋",
+      "nameEn": "Boiled Egg",
+      "aliases": ["煮鸡蛋", "鸡蛋", "白煮蛋", "全蛋", "卤蛋", "蛋白", "蛋黄", "卤鸡蛋"],
+      "proteinGPer100g": 13.1,
+      "carbsGPer100g": 1.1,
+      "fatGPer100g": 10.5
+    },
+    {
+      "name": "煎鸡蛋",
+      "nameEn": "Fried Egg",
+      "aliases": ["炒鸡蛋", "荷包蛋", "煎蛋"],
+      "proteinGPer100g": 12.5,
+      "carbsGPer100g": 1.2,
+      "fatGPer100g": 14.0
+    },
+    {
+      "name": "鸡胸肉",
+      "nameEn": "Chicken Breast",
+      "aliases": ["鸡肉", "白煮鸡胸", "煎鸡胸", "烤鸡胸", "鸡胸", "鸡胸肉片"],
+      "proteinGPer100g": 31.0,
+      "carbsGPer100g": 0.0,
+      "fatGPer100g": 3.6
+    },
+    {
+      "name": "鸡腿肉",
+      "nameEn": "Chicken Thigh",
+      "aliases": ["鸡腿", "烤鸡腿", "卤鸡腿"],
+      "proteinGPer100g": 24.0,
+      "carbsGPer100g": 0.0,
+      "fatGPer100g": 10.0
+    },
+    {
+      "name": "牛排",
+      "nameEn": "Beef Steak",
+      "aliases": ["牛肉", "煎牛排", "烤牛排", "牛扒", "卤牛肉", "酱牛肉", "牛肉片", "煎牛肉"],
+      "proteinGPer100g": 26.0,
+      "carbsGPer100g": 0.0,
+      "fatGPer100g": 10.0
+    },
+    {
+      "name": "猪肉",
+      "nameEn": "Pork",
+      "aliases": ["猪瘦肉", "炒猪肉", "煎猪肉", "猪肉片", "肉片", "瘦肉"],
+      "proteinGPer100g": 27.0,
+      "carbsGPer100g": 0.0,
+      "fatGPer100g": 6.2
+    },
+    {
+      "name": "五花肉",
+      "nameEn": "Pork Belly",
+      "aliases": ["红烧肉", "东坡肉", "扣肉", "肥肉"],
+      "proteinGPer100g": 16.0,
+      "carbsGPer100g": 2.0,
+      "fatGPer100g": 37.0
+    },
+    {
+      "name": "三文鱼",
+      "nameEn": "Salmon",
+      "aliases": ["烤三文鱼", "煎三文鱼", "生三文鱼", "三文鱼刺身"],
+      "proteinGPer100g": 22.0,
+      "carbsGPer100g": 0.0,
+      "fatGPer100g": 12.0
+    },
+    {
+      "name": "虾仁",
+      "nameEn": "Shrimp",
+      "aliases": ["虾", "大虾", "明虾", "白灼虾", "炒虾仁", "虾肉"],
+      "proteinGPer100g": 20.0,
+      "carbsGPer100g": 0.2,
+      "fatGPer100g": 1.0
+    },
+    {
+      "name": "西兰花",
+      "nameEn": "Broccoli",
+      "aliases": ["西蓝花", "花椰菜", "青花菜", "炒西兰花", "白灼西兰花"],
+      "proteinGPer100g": 2.8,
+      "carbsGPer100g": 6.6,
+      "fatGPer100g": 0.4
+    },
+    {
+      "name": "番茄",
+      "nameEn": "Tomato",
+      "aliases": ["西红柿", "小番茄", "圣女果", "樱桃番茄", "番茄块"],
+      "proteinGPer100g": 0.9,
+      "carbsGPer100g": 4.0,
+      "fatGPer100g": 0.2
+    },
+    {
+      "name": "黄瓜",
+      "nameEn": "Cucumber",
+      "aliases": ["青瓜", "凉拌黄瓜", "拍黄瓜", "黄瓜片"],
+      "proteinGPer100g": 0.8,
+      "carbsGPer100g": 2.9,
+      "fatGPer100g": 0.2
+    },
+    {
+      "name": "土豆",
+      "nameEn": "Potato",
+      "aliases": ["马铃薯", "炒土豆", "土豆丝", "土豆片", "煮土豆", "烤土豆", "土豆块"],
+      "proteinGPer100g": 2.0,
+      "carbsGPer100g": 17.5,
+      "fatGPer100g": 0.2
+    },
+    {
+      "name": "红薯",
+      "nameEn": "Sweet Potato",
+      "aliases": ["地瓜", "烤红薯", "蒸红薯", "番薯", "红苕"],
+      "proteinGPer100g": 1.4,
+      "carbsGPer100g": 24.0,
+      "fatGPer100g": 0.2
+    },
+    {
+      "name": "豆腐",
+      "nameEn": "Tofu",
+      "aliases": ["嫩豆腐", "老豆腐", "北豆腐", "南豆腐", "卤水豆腐", "石膏豆腐", "白豆腐"],
+      "proteinGPer100g": 8.1,
+      "carbsGPer100g": 2.0,
+      "fatGPer100g": 4.8
+    },
+    {
+      "name": "秋葵",
+      "nameEn": "Okra",
+      "aliases": ["羊角豆", "炒秋葵", "白灼秋葵", "凉拌秋葵"],
+      "proteinGPer100g": 2.0,
+      "carbsGPer100g": 7.0,
+      "fatGPer100g": 0.2
+    },
+    {
+      "name": "胡萝卜",
+      "nameEn": "Carrot",
+      "aliases": ["红萝卜", "胡萝卜片", "炒胡萝卜", "胡萝卜丝", "胡萝卜块", "腌萝卜", "白萝卜"],
+      "proteinGPer100g": 0.9,
+      "carbsGPer100g": 9.6,
+      "fatGPer100g": 0.2
+    },
+    {
+      "name": "菠菜",
+      "nameEn": "Spinach",
+      "aliases": ["炒菠菜", "凉拌菠菜", "菠菜叶"],
+      "proteinGPer100g": 2.9,
+      "carbsGPer100g": 3.6,
+      "fatGPer100g": 0.4
+    },
+    {
+      "name": "生菜",
+      "nameEn": "Lettuce",
+      "aliases": ["生菜叶", "罗马生菜", "西生菜", "叶生菜"],
+      "proteinGPer100g": 1.4,
+      "carbsGPer100g": 2.9,
+      "fatGPer100g": 0.2
+    },
+    {
+      "name": "白菜",
+      "nameEn": "Chinese Cabbage",
+      "aliases": ["大白菜", "娃娃菜", "炒白菜", "小白菜"],
+      "proteinGPer100g": 1.5,
+      "carbsGPer100g": 2.4,
+      "fatGPer100g": 0.2
+    },
+    {
+      "name": "玉米",
+      "nameEn": "Corn",
+      "aliases": ["玉米粒", "甜玉米", "煮玉米", "烤玉米", "玉米棒"],
+      "proteinGPer100g": 4.0,
+      "carbsGPer100g": 22.8,
+      "fatGPer100g": 1.2
+    },
+    {
+      "name": "南瓜籽",
+      "nameEn": "Pumpkin Seeds",
+      "aliases": ["南瓜子", "南瓜籽仁", "瓜子仁"],
+      "proteinGPer100g": 30.2,
+      "carbsGPer100g": 10.0,
+      "fatGPer100g": 49.0
+    },
+    {
+      "name": "食用油",
+      "nameEn": "Cooking Oil",
+      "aliases": ["植物油", "菜籽油", "花生油", "橄榄油", "油"],
+      "proteinGPer100g": 0.0,
+      "carbsGPer100g": 0.0,
+      "fatGPer100g": 99.9
+    }
+  ]
+}
