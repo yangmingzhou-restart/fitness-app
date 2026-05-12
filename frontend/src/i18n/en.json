@@ -195,7 +195,8 @@
     "setComplete": "Set Complete?",
     "setCompleteHint": "Please confirm this set is done to avoid missing records",
     "confirmDone": "Done",
-    "alarm": "Alarm"
+    "alarm": "Alarm",
+    "alarmDuration": "Alarm Duration"
   },
   "common": {
     "loading": "Loading...",

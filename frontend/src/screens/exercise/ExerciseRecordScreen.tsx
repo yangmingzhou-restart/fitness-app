@@ -6,7 +6,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import type { RouteProp } from '@react-navigation/native';
-import { getExerciseRecordsByDate, saveExerciseRecord, deleteExerciseRecord } from '../../services/storage';
+import { getExerciseRecordsByDate, saveExerciseRecord, deleteExerciseRecord, getExerciseTimerSettings, saveExerciseTimerSettings } from '../../services/storage';
 import type { RootStackParamList } from '../../navigation/AppNavigator';
 
 interface ExerciseSet {
@@ -66,19 +66,60 @@ export default function ExerciseRecordScreen() {
   const restEndRef = useRef(0);
   const alarmEndRef = useRef(0);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const lastActiveExerciseRef = useRef<string>('');
+
+  // Load persisted timer settings on mount
+  useEffect(() => {
+    (async () => {
+      const saved = await getExerciseTimerSettings();
+      if (records.length > 0) {
+        const first = records[0].exerciseName;
+        if (saved[first]) {
+          setRestDuration(saved[first].restSec);
+          setAlarmDuration(saved[first].alarmSec);
+          lastActiveExerciseRef.current = first;
+        }
+      }
+    })();
+  }, []);
+
+  // Auto-apply timer settings when records change (for the first exercise)
+  useEffect(() => {
+    if (records.length === 0) return;
+    (async () => {
+      const saved = await getExerciseTimerSettings();
+      const first = records[0].exerciseName;
+      if (saved[first] && lastActiveExerciseRef.current !== first) {
+        setRestDuration(saved[first].restSec);
+        setAlarmDuration(saved[first].alarmSec);
+        lastActiveExerciseRef.current = first;
+      }
+    })();
+  }, [records]);
+
+  const persistCurrentSettings = useCallback((rest: number, alarm: number) => {
+    const name = lastActiveExerciseRef.current;
+    if (name) {
+      saveExerciseTimerSettings(name, rest, alarm);
+    }
+  }, []);
 
   const applyCustomRest = () => {
     const m = parseInt(restMinutes) || 0;
     const s = parseInt(restSeconds) || 0;
     const total = m * 60 + s;
-    setRestDuration(total || 90);
+    const newRest = total || 90;
+    setRestDuration(newRest);
     setShowTimerInput(false);
+    persistCurrentSettings(newRest, alarmDuration);
   };
 
   const cycleRestDuration = () => {
     const presets = [60, 90, 120];
     const idx = presets.indexOf(restDuration);
-    setRestDuration(presets[(idx + 1) % presets.length]);
+    const next = presets[(idx + 1) % presets.length];
+    setRestDuration(next);
+    persistCurrentSettings(next, alarmDuration);
   };
 
   const startWorkout = () => {
@@ -310,6 +351,7 @@ export default function ExerciseRecordScreen() {
     const set = record.sets[si];
     const completing = !set.completed;
     if (completing) {
+      lastActiveExerciseRef.current = record.exerciseName;
       if (timerState === 'idle') startWorkout();
       startRest();
     }
@@ -535,7 +577,7 @@ export default function ExerciseRecordScreen() {
               <View>
                 <TouchableOpacity onPress={cycleRestDuration} onLongPress={() => setShowTimerInput(true)}>
                   <Text style={styles.restSetting}>
-                    {t('workoutTimer.restDuration')}: {formatTime(restDuration)}
+                    {t('workoutTimer.restDuration')}: {formatTime(restDuration)}  |  {t('workoutTimer.alarmDuration')}: {formatTime(alarmDuration)}
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => setShowTimerInput(true)}>
@@ -550,11 +592,14 @@ export default function ExerciseRecordScreen() {
         </View>
       )}
 
-      {/* Custom Rest Timer Modal */}
+      {/* Custom Timer Settings Modal */}
       {showTimerInput && (
         <View style={styles.timerModalOverlay}>
           <View style={styles.timerModal}>
             <Text style={styles.timerModalTitle}>{t('workoutTimer.customRest')}</Text>
+
+            {/* Rest duration */}
+            <Text style={styles.timerSectionLabel}>{t('workoutTimer.restDuration')}</Text>
             <View style={styles.timerInputRow}>
               <View style={styles.timerInputGroup}>
                 <Text style={styles.timerInputLabel}>{t('workoutTimer.minutes')}</Text>
@@ -585,7 +630,7 @@ export default function ExerciseRecordScreen() {
             <View style={styles.timerPresetRow}>
               {[60, 90, 120].map((sec) => (
                 <TouchableOpacity
-                  key={sec}
+                  key={`rest_${sec}`}
                   style={[styles.timerPresetChip, restDuration === sec && styles.timerPresetChipActive]}
                   onPress={() => {
                     setRestDuration(sec);
@@ -599,6 +644,58 @@ export default function ExerciseRecordScreen() {
                 </TouchableOpacity>
               ))}
             </View>
+
+            {/* Alarm duration */}
+            <Text style={styles.timerSectionLabel}>{t('workoutTimer.alarmDuration')}</Text>
+            <View style={styles.timerInputRow}>
+              <View style={styles.timerInputGroup}>
+                <Text style={styles.timerInputLabel}>{t('workoutTimer.minutes')}</Text>
+                <TextInput
+                  style={styles.timerFieldInput}
+                  keyboardType="numeric"
+                  value={String(Math.floor(alarmDuration / 60))}
+                  onChangeText={(v) => {
+                    const m = parseInt(v) || 0;
+                    const s = alarmDuration % 60;
+                    setAlarmDuration(m * 60 + s);
+                  }}
+                  placeholder="0"
+                  placeholderTextColor="#999"
+                  maxLength={2}
+                />
+              </View>
+              <Text style={styles.timerColon}>:</Text>
+              <View style={styles.timerInputGroup}>
+                <Text style={styles.timerInputLabel}>{t('workoutTimer.seconds')}</Text>
+                <TextInput
+                  style={styles.timerFieldInput}
+                  keyboardType="numeric"
+                  value={String(alarmDuration % 60)}
+                  onChangeText={(v) => {
+                    const s = parseInt(v) || 0;
+                    const m = Math.floor(alarmDuration / 60);
+                    setAlarmDuration(m * 60 + Math.min(s, 59));
+                  }}
+                  placeholder="0"
+                  placeholderTextColor="#999"
+                  maxLength={2}
+                />
+              </View>
+            </View>
+            <View style={styles.timerPresetRow}>
+              {[15, 30, 45].map((sec) => (
+                <TouchableOpacity
+                  key={`alarm_${sec}`}
+                  style={[styles.timerPresetChip, alarmDuration === sec && styles.timerPresetChipActive]}
+                  onPress={() => setAlarmDuration(sec)}
+                >
+                  <Text style={[styles.timerPresetText, alarmDuration === sec && styles.timerPresetTextActive]}>
+                    {formatTime(sec)}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+
             <View style={styles.timerModalActions}>
               <TouchableOpacity style={styles.cancelBtn} onPress={() => setShowTimerInput(false)}>
                 <Text style={styles.cancelBtnText}>{t('common.cancel')}</Text>
@@ -838,6 +935,7 @@ const styles = StyleSheet.create({
     maxWidth: 340,
   },
   timerModalTitle: { fontSize: 17, fontWeight: '700', color: '#333', textAlign: 'center', marginBottom: 16 },
+  timerSectionLabel: { fontSize: 13, fontWeight: '600', color: '#555', marginTop: 12, marginBottom: 8 },
   timerInputRow: { flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center', gap: 12, marginBottom: 16 },
   timerInputGroup: { alignItems: 'center', gap: 4 },
   timerInputLabel: { fontSize: 12, color: '#999' },

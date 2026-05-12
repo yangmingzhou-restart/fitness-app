@@ -1,0 +1,3434 @@
+[
+  {
+    "id": "dumbbell-curl",
+    "name": "哑铃弯举",
+    "nameEn": "Dumbbell Curl",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "站立或坐姿，双手各持一个哑铃，掌心向前，以肘部为轴向上弯举，在顶部收缩肱二头肌，然后缓慢下放。",
+    "tips": [
+      "保持上臂贴近身体不要前后摆动",
+      "全程控制重量，避免借力",
+      "下放阶段要缓慢（2-3秒）",
+      "保持手腕中立位"
+    ]
+  },
+  {
+    "id": "barbell-curl",
+    "name": "杠铃弯举",
+    "nameEn": "Barbell Curl",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "beginner",
+    "description": "双手与肩同宽握住杠铃，上臂固定于体侧，以肘部为轴弯举杠铃至肩部高度，顶峰收缩后缓慢下放。",
+    "tips": [
+      "握距与肩同宽最佳",
+      "避免上半身摇晃借力",
+      "全程保持上臂紧贴身体",
+      "杠铃下放时不要完全伸直手臂"
+    ]
+  },
+  {
+    "id": "hammer-curl",
+    "name": "锤式弯举",
+    "nameEn": "Hammer Curl",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [
+      "forearms",
+      "brachialis"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "双手持哑铃，掌心相对（中立握），上臂固定于体侧，弯举哑铃至肩部高度。重点锻炼肱肌和前臂。",
+    "tips": [
+      "保持掌心相对不要旋转",
+      "上臂全程固定",
+      "下放阶段控制速度",
+      "可以同时或交替进行"
+    ]
+  },
+  {
+    "id": "preacher-curl",
+    "name": "牧师凳弯举",
+    "nameEn": "Preacher Curl",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "equipment": "牧师凳+杠铃",
+    "difficulty": "intermediate",
+    "description": "坐在牧师凳上，腋窝靠在斜面垫上，握住杠铃或哑铃，弯举至前臂接近垂直，顶峰收缩后缓慢下放。",
+    "tips": [
+      "让腋窝紧贴垫子上沿",
+      "完全伸展手臂到底部",
+      "顶峰时收缩1-2秒",
+      "选择合适重量避免肘部压力"
+    ]
+  },
+  {
+    "id": "concentration-curl",
+    "name": "集中弯举",
+    "nameEn": "Concentration Curl",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "坐在长凳上，单手持哑铃，上臂后侧靠在大腿内侧，弯举哑铃至肩部。这是孤立肱二头肌最有效的动作。",
+    "tips": [
+      "上臂靠在大腿内侧保持稳定",
+      "动作顶端夹紧肱二头肌",
+      "不要使用惯性借力",
+      "缓慢下放感受肌肉拉伸"
+    ]
+  },
+  {
+    "id": "cable-curl",
+    "name": "绳索弯举",
+    "nameEn": "Cable Curl",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "equipment": "绳索机",
+    "difficulty": "beginner",
+    "description": "面向绳索低位把手站立，握住直杆或绳索，上臂固定于体侧，弯举把手至肩部高度。全程保持张力。",
+    "tips": [
+      "保持上臂固定不动",
+      "缆绳提供全程恒定阻力",
+      "下放时对抗阻力缓慢进行",
+      "可以变换握法（正握/反握）"
+    ]
+  },
+  {
+    "id": "tricep-pushdown",
+    "name": "肱三绳索下压",
+    "nameEn": "Tricep Pushdown",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [],
+    "equipment": "绳索机",
+    "difficulty": "beginner",
+    "description": "面对高位绳索站立，握住直杆或绳索，固定上臂于体侧，以肘部为轴向下按压至手臂完全伸展，顶峰收缩后缓慢还原。",
+    "tips": [
+      "上臂紧贴身体不移动",
+      "手腕保持中立",
+      "最高点停顿片刻再还原",
+      "避免含胸驼背"
+    ]
+  },
+  {
+    "id": "skull-crusher",
+    "name": "仰卧臂屈伸",
+    "nameEn": "Skull Crusher",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [],
+    "equipment": "EZ杆",
+    "difficulty": "intermediate",
+    "description": "仰卧在平凳上，握住EZ杆，手臂伸直垂直于天花板，屈肘将杠铃向头部方向下放至额头上方，然后用肱三头肌发力伸回起始位置。",
+    "tips": [
+      "上臂保持垂直地面不动",
+      "下放时控制速度避免撞击",
+      "肘部微屈不完全锁死",
+      "使用保护者或适中重量"
+    ]
+  },
+  {
+    "id": "overhead-tricep-extension",
+    "name": "过头臂屈伸",
+    "nameEn": "Overhead Tricep Extension",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "坐姿或站姿，双手托住一只哑铃举过头顶，屈肘将哑铃下放至颈后，然后发力将哑铃推回头顶上方。",
+    "tips": [
+      "保持上臂贴近耳朵",
+      "核心收紧稳定身体",
+      "控制下放至最大拉伸位置",
+      "选择适中重量保护肘关节"
+    ]
+  },
+  {
+    "id": "close-grip-bench-press",
+    "name": "窄距卧推",
+    "nameEn": "Close Grip Bench Press",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [
+      "chest"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "仰卧在平凳上，双手与肩同宽（比常规卧推更窄），将杠铃从胸口推起至手臂伸直。重点锻炼肱三头肌。",
+    "tips": [
+      "握距约20-25cm",
+      "手肘贴近身体两侧",
+      "杠铃下降至胸口下方位置",
+      "推起时感受肱三头肌发力"
+    ]
+  },
+  {
+    "id": "dips",
+    "name": "双杠臂屈伸",
+    "nameEn": "Dips",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [
+      "chest",
+      "shoulders"
+    ],
+    "equipment": "双杠",
+    "difficulty": "intermediate",
+    "description": "双手撑在双杠上，身体悬空，屈肘下降身体至肩部略低于肘部，然后用肱三头肌发力推回起始位置。",
+    "tips": [
+      "身体前倾更多锻炼胸肌",
+      "身体竖直更多锻炼肱三头肌",
+      "下降至90度即可不过深",
+      "肩部有问题者慎做"
+    ]
+  },
+  {
+    "id": "bench-press",
+    "name": "杠铃卧推",
+    "nameEn": "Barbell Bench Press",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [
+      "shoulders",
+      "arms"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "仰卧在平凳上，握距略宽于肩，将杠铃从胸口推起至手臂完全伸展，顶峰收缩后缓慢下放至胸口中部。",
+    "tips": [
+      "肩胛骨收紧下沉",
+      "双脚踩稳地面",
+      "杠铃下降至乳头线位置",
+      "保护者站在头部后方"
+    ]
+  },
+  {
+    "id": "dumbbell-bench-press",
+    "name": "哑铃卧推",
+    "nameEn": "Dumbbell Bench Press",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [
+      "shoulders",
+      "arms"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "仰卧在平凳上，双手各持哑铃，手臂伸直于胸部上方，缓慢下放哑铃至胸部两侧，然后推回起始位置。",
+    "tips": [
+      "哑铃不要触碰到一起",
+      "最大伸展位置感受胸肌拉伸",
+      "推起时向中间挤压",
+      "可以选择旋转手腕增加收缩"
+    ]
+  },
+  {
+    "id": "incline-bench-press",
+    "name": "上斜杠铃卧推",
+    "nameEn": "Incline Barbell Bench Press",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [
+      "shoulders",
+      "arms"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "在30-45度上斜凳上进行卧推。将杠铃从锁骨下方向上推起，重点锻炼上胸部。",
+    "tips": [
+      "角度不宜超过45度",
+      "杠铃落点在锁骨下方",
+      "肩胛骨依然收紧",
+      "感受上胸肌发力"
+    ]
+  },
+  {
+    "id": "incline-dumbbell-press",
+    "name": "上斜哑铃卧推",
+    "nameEn": "Incline Dumbbell Press",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [
+      "shoulders",
+      "arms"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "在30-45度上斜凳上，双手各持哑铃进行卧推，重点锻炼上胸肌。哑铃允许更大的运动范围。",
+    "tips": [
+      "角度30-45度最佳",
+      "下降时肘部呈45度",
+      "全程保持对哑铃的控制",
+      "顶峰时不要锁死手肘"
+    ]
+  },
+  {
+    "id": "decline-bench-press",
+    "name": "下斜杠铃卧推",
+    "nameEn": "Decline Barbell Bench Press",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "在15-20度下斜凳上进行卧推，将杠铃从胸下方推起，重点锻炼下胸肌。",
+    "tips": [
+      "角度不宜过大",
+      "脚要固定好防滑",
+      "杠铃落在胸骨下方",
+      "有保护者更安全"
+    ]
+  },
+  {
+    "id": "chest-flyes",
+    "name": "哑铃飞鸟",
+    "nameEn": "Dumbbell Flyes",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "仰卧在平凳上，双手持哑铃，手臂微屈呈弧形张开至胸部高度以下，然后用胸肌力量将哑铃向中间合拢。",
+    "tips": [
+      "手肘保持微屈（约15度）",
+      "感受胸肌的拉伸和收缩",
+      "不要使哑铃碰撞",
+      "下降深度视肩部灵活性而定"
+    ]
+  },
+  {
+    "id": "cable-flyes",
+    "name": "绳索飞鸟",
+    "nameEn": "Cable Flyes",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [],
+    "equipment": "绳索机",
+    "difficulty": "beginner",
+    "description": "站在两个高位绳索之间，双手各握一个把手，身体微前倾，从两侧向胸前方合拢手臂，全程保持弧线运动。",
+    "tips": [
+      "保持手肘微屈",
+      "动作顶端挤压胸肌",
+      "回到起始位置时保持控制",
+      "调整绳索高度可针对不同胸肌区域"
+    ]
+  },
+  {
+    "id": "push-ups",
+    "name": "俯卧撑",
+    "nameEn": "Push-ups",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [
+      "shoulders",
+      "arms",
+      "core"
+    ],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "双手与肩同宽支撑地面，身体呈一条直线，屈肘下降身体至胸部接近地面，然后推回起始位置。",
+    "tips": [
+      "核心收紧保持身体平直",
+      "手肘与身体呈45度",
+      "下巴先行下降",
+      "全程保持呼吸节奏"
+    ]
+  },
+  {
+    "id": "wide-push-ups",
+    "name": "宽距俯卧撑",
+    "nameEn": "Wide Push-ups",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [
+      "shoulders",
+      "arms"
+    ],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "双手间距比肩宽1.5-2倍做俯卧撑，更多刺激胸肌外侧和下胸。",
+    "tips": [
+      "双手越宽越侧重胸肌外侧",
+      "保持身体直线",
+      "下降幅度可以适当减小",
+      "手肘自然外展"
+    ]
+  },
+  {
+    "id": "diamond-push-ups",
+    "name": "钻石俯卧撑",
+    "nameEn": "Diamond Push-ups",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [
+      "chest",
+      "shoulders"
+    ],
+    "equipment": "无",
+    "difficulty": "intermediate",
+    "description": "双手拇指和食指相触形成钻石形状，置于胸部正下方做俯卧撑，重点锻炼肱三头肌和胸内侧。",
+    "tips": [
+      "双手放在胸骨正下方",
+      "手肘贴近身体",
+      "下降至钻石形状触碰胸口",
+      "核心收紧防塌腰"
+    ]
+  },
+  {
+    "id": "cable-crossover",
+    "name": "绳索交叉",
+    "nameEn": "Cable Crossover",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [],
+    "equipment": "绳索机",
+    "difficulty": "intermediate",
+    "description": "站在两个高位绳索之间，双手各持把手，从高位移至低位，在身体前方双手交叉。从低位移至高位则可针对上胸。",
+    "tips": [
+      "改变身体前倾角度可针对不同区域",
+      "动作顶端可以交叉双手",
+      "保持手肘微屈",
+      "全程控制张力"
+    ]
+  },
+  {
+    "id": "pec-deck-fly",
+    "name": "蝴蝶机夹胸",
+    "nameEn": "Pec Deck Fly",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [],
+    "equipment": "蝴蝶机",
+    "difficulty": "beginner",
+    "description": "坐在蝴蝶机上，前臂靠在垫板上，上臂平行于地面，用力将垫板向中间合拢至双手接近接触，顶峰挤压胸肌后缓慢还原。",
+    "tips": [
+      "坐姿调整至肘部与肩齐平",
+      "动作过程中手肘微屈",
+      "顶端挤胸1-2秒",
+      "还原时吸气打开"
+    ]
+  },
+  {
+    "id": "deadlift",
+    "name": "硬拉",
+    "nameEn": "Deadlift",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "legs",
+      "core"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "advanced",
+    "description": "双脚与髋同宽站在杠铃下，握杠后挺胸收腹，用腿部和背部力量将杠铃沿小腿向上一气呵成拉至站立姿态。",
+    "tips": [
+      "保持脊椎中立（不弓背不反弓）",
+      "杠铃贴近身体",
+      "启动时收紧背阔肌",
+      "锁定时不后仰"
+    ]
+  },
+  {
+    "id": "barbell-row",
+    "name": "杠铃划船",
+    "nameEn": "Barbell Row",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "屈膝弯腰保持躯干接近平行地面，正握杠铃，将杠铃沿大腿方向拉至腹部，顶峰收缩后缓慢下放。",
+    "tips": [
+      "保持身体角度稳定",
+      "用肘部发力向后拉",
+      "核心收紧保护腰椎",
+      "顶峰时夹紧背部"
+    ]
+  },
+  {
+    "id": "pull-ups",
+    "name": "引体向上",
+    "nameEn": "Pull-ups",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms",
+      "shoulders"
+    ],
+    "equipment": "单杠",
+    "difficulty": "intermediate",
+    "description": "双手略宽于肩，正握单杠，身体悬垂后发力将身体拉至下巴超过单杠高度，顶峰收缩后缓慢下降。",
+    "tips": [
+      "全程避免身体摆动借力",
+      "顶部挤压背阔肌",
+      "下降至手臂几乎伸直",
+      "如果需要可以使用弹力带辅助"
+    ]
+  },
+  {
+    "id": "chin-ups",
+    "name": "反握引体向上",
+    "nameEn": "Chin-ups",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "单杠",
+    "difficulty": "intermediate",
+    "description": "双手与肩同宽，反握（掌心朝向自己）单杠进行引体向上，更多募集肱二头肌。",
+    "tips": [
+      "感受背部肌肉收缩",
+      "头部越过单杠即可",
+      "下降时控制身体",
+      "比正握更容易上手"
+    ]
+  },
+  {
+    "id": "lat-pulldown",
+    "name": "高位下拉",
+    "nameEn": "Lat Pulldown",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms",
+      "shoulders"
+    ],
+    "equipment": "高位下拉机",
+    "difficulty": "beginner",
+    "description": "坐在高位下拉机上，双手宽握横杆，将横杆拉至锁骨高度，保持挺胸，挤压背部后缓慢还原。",
+    "tips": [
+      "微微后倾约15度",
+      "下拉时挺胸抬头",
+      "拉到锁骨或上胸位置",
+      "不要过度后仰借力"
+    ]
+  },
+  {
+    "id": "cable-row",
+    "name": "坐姿绳索划船",
+    "nameEn": "Seated Cable Row",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "绳索划船机",
+    "difficulty": "beginner",
+    "description": "坐在地上，双脚踩在前方踏板上，握住V型把手，将把手拉向腹部，顶峰收缩后缓慢还原。",
+    "tips": [
+      "膝盖微屈",
+      "拉向小腹而非胸口",
+      "顶峰时夹紧背阔肌",
+      "还原时伸展背部"
+    ]
+  },
+  {
+    "id": "t-bar-row",
+    "name": "T型杆划船",
+    "nameEn": "T-Bar Row",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "T型杆",
+    "difficulty": "intermediate",
+    "description": "站在T型杆上，身体前倾，双手正握把手，将重物沿大腿方向拉至胸口下方，顶峰收缩后缓慢下放。",
+    "tips": [
+      "保持背部挺直",
+      "用肘部发力向上拉",
+      "顶峰挤压1-2秒",
+      "还原控制重量"
+    ]
+  },
+  {
+    "id": "dumbbell-row",
+    "name": "哑铃划船",
+    "nameEn": "Dumbbell Row",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "单膝跪在长凳上，同侧手撑住凳面，另一手持哑铃从完全下垂位置拉至髋部侧面，顶峰收缩后缓慢下放。",
+    "tips": [
+      "保持背部与地面平行",
+      "用肘部高度判断发力幅度",
+      "顶峰时扭转手腕加强收缩",
+      "不要旋转躯干借力"
+    ]
+  },
+  {
+    "id": "pendlay-row",
+    "name": "彭德莱划船",
+    "nameEn": "Pendlay Row",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "躯干平行于地面，握住杠铃，爆发性地将杠铃拉至腹部，然后缓慢将杠铃放回地面，每一下都从地面重新开始。",
+    "tips": [
+      "保证背部和地面平行",
+      "每一下都从完全静止开始",
+      "拉至下胸/上腹位置",
+      "不同于常规划船，每次放回地面"
+    ]
+  },
+  {
+    "id": "face-pull",
+    "name": "面拉",
+    "nameEn": "Face Pull",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "shoulders"
+    ],
+    "equipment": "绳索机",
+    "difficulty": "beginner",
+    "description": "站在高位绳索前，双手持绳索把手，将绳索拉向面部，双手在脸部两侧打开，肘部抬高，重点锻炼三角肌后束和上背。",
+    "tips": [
+      "将绳索拉向额头/眼睛高度",
+      "手向两侧打开如画弓",
+      "顶峰时收缩肩胛",
+      "使用轻重量高次数"
+    ]
+  },
+  {
+    "id": "hyperextension",
+    "name": "山羊挺身",
+    "nameEn": "Hyperextension",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "罗马椅",
+    "difficulty": "beginner",
+    "description": "俯卧在罗马椅上，髋部靠在垫子上，上半身自然下垂，然后用下背和臀部力量将上半身抬起至身体呈一条直线。",
+    "tips": [
+      "不要过度超伸（超过直线可伤腰椎）",
+      "顶峰收缩臀部和竖脊肌",
+      "双手可以抱胸增加难度",
+      "使用轻重量哑铃额外负重"
+    ]
+  },
+  {
+    "id": "rack-pull",
+    "name": "架拉",
+    "nameEn": "Rack Pull",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "legs"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "将杠铃置于安全架上（膝关节高度），进行缩短行程的硬拉。减少腿部参与，更专注于上背和握力。",
+    "tips": [
+      "架高通常在膝盖上下位置",
+      "从半程动作开始发力",
+      "顶峰完全锁定时挤压背部",
+      "比标准硬拉可以使用更大重量"
+    ]
+  },
+  {
+    "id": "cable-pullover",
+    "name": "绳索仰卧上拉",
+    "nameEn": "Cable Pullover",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "chest",
+      "core"
+    ],
+    "equipment": "绳索机",
+    "difficulty": "beginner",
+    "description": "仰卧或站姿面对高位绳索，手臂微屈，将直杆从头顶上方拉至髋部，重点锻炼背阔肌和胸大肌。",
+    "tips": [
+      "保持手臂微屈",
+      "感受背阔肌拉伸和收缩",
+      "核心收紧稳定身体",
+      "动作顶端不要锁死肘部"
+    ]
+  },
+  {
+    "id": "squat",
+    "name": "杠铃深蹲",
+    "nameEn": "Barbell Squat",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "core",
+      "back"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "将杠铃置于斜方肌上方（高杠深蹲），双脚与肩同宽站立，屈膝屈髋下蹲至大腿与地面平行或更低，然后发力站起。",
+    "tips": [
+      "保持脊椎中立",
+      "膝盖始终与脚尖方向一致",
+      "蹲到至少平行以下",
+      "核心收紧保护腰椎",
+      "脚跟不离地"
+    ]
+  },
+  {
+    "id": "front-squat",
+    "name": "前蹲",
+    "nameEn": "Front Squat",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "将杠铃放在锁骨和三角肌前束上，双手交叉固定杠铃，躯干保持垂直进行深蹲。重点锻炼股四头肌。",
+    "tips": [
+      "保持肘部抬高",
+      "躯干比后蹲更垂直",
+      "核心强烈收紧",
+      "对腕部灵活性有要求"
+    ]
+  },
+  {
+    "id": "goblet-squat",
+    "name": "高脚杯深蹲",
+    "nameEn": "Goblet Squat",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "双手托住一个哑铃置于胸前，双脚略宽于肩，保持躯干垂直下蹲至大腿平行或更低，然后发力站起。",
+    "tips": [
+      "保持哑铃始终贴近胸口",
+      "手肘触碰膝盖内侧",
+      "下蹲至最低点时停顿",
+      "保持挺胸收腹"
+    ]
+  },
+  {
+    "id": "bulgarian-split-squat",
+    "name": "保加利亚分腿蹲",
+    "nameEn": "Bulgarian Split Squat",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "后脚放在身后长凳上，前脚向前迈出一大步，保持上身垂直，屈前膝下降身体至后膝接近地面，然后前脚发力推回起始位置。",
+    "tips": [
+      "选择合适的前脚距离",
+      "躯干保持直立",
+      "前膝盖不超过脚尖",
+      "核心收紧维持平衡"
+    ]
+  },
+  {
+    "id": "romanian-deadlift",
+    "name": "罗马尼亚硬拉",
+    "nameEn": "Romanian Deadlift",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "back"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "双手与肩同宽握杠铃站立，膝盖微屈，臀部向后推，杠铃沿大腿前方下放至小腿中部位置（保持背部平直），然后臀部发力回到站立。",
+    "tips": [
+      "膝盖保持微屈不变",
+      "主要用臀部发力",
+      "杠铃贴紧大腿",
+      "全程保持脊柱中立"
+    ]
+  },
+  {
+    "id": "leg-press",
+    "name": "腿举",
+    "nameEn": "Leg Press",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [],
+    "equipment": "腿举机",
+    "difficulty": "beginner",
+    "description": "坐在腿举机上，双脚与肩同宽放在踏板上，将重物推起至腿几乎伸直（不要锁死膝盖），然后屈膝将重物缓慢下放至90度，再发力推回。",
+    "tips": [
+      "不要锁死膝盖",
+      "下放到至少90度",
+      "全脚掌踩稳踏板",
+      "保持背部贴紧座椅",
+      "可以变换脚位刺激不同肌群"
+    ]
+  },
+  {
+    "id": "leg-extension",
+    "name": "腿屈伸",
+    "nameEn": "Leg Extension",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [],
+    "equipment": "腿屈伸机",
+    "difficulty": "beginner",
+    "description": "坐在腿屈伸机上，双脚勾住滚轴，从90度弯曲位置将大腿完全伸直，顶峰收缩后缓慢还原。孤立锻炼股四头肌。",
+    "tips": [
+      "顶峰完全伸直时收缩肱四头肌",
+      "控制还原速度（2-3秒）",
+      "膝关节有问题者不要锁死",
+      "可以单侧练习修正不平衡"
+    ]
+  },
+  {
+    "id": "leg-curl",
+    "name": "腿弯举",
+    "nameEn": "Leg Curl",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [],
+    "equipment": "腿弯举机",
+    "difficulty": "beginner",
+    "description": "俯卧在腿弯举机上，脚踝勾住滚轴，屈膝将小腿向臀部方向卷曲，顶峰收缩后缓慢还原。孤立锻炼腘绳肌。",
+    "tips": [
+      "髋部贴紧垫子不抬起来",
+      "顶峰时挤压腘绳肌",
+      "还原时吸气",
+      "可以单侧交替进行"
+    ]
+  },
+  {
+    "id": "hip-thrust",
+    "name": "臀推",
+    "nameEn": "Hip Thrust",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "上背靠在长凳上，杠铃横放在髋部上方，屈膝脚踩地，以髋为轴将臀部向上推至身体呈直线，顶峰收缩臀部后缓慢下放。",
+    "tips": [
+      "目光看向前方不低头",
+      "顶峰时骨盆不要过度前倾",
+      "大重量时使用护垫",
+      "可以单侧进行修正不平衡"
+    ]
+  },
+  {
+    "id": "calf-raises",
+    "name": "站姿提踵",
+    "nameEn": "Standing Calf Raises",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [],
+    "equipment": "提踵机",
+    "difficulty": "beginner",
+    "description": "站在提踵机上，前脚掌踩在平台上，脚跟自然下垂至小腿最大拉伸位置，然后发力提踵至最高点，顶峰收缩后缓慢下放。",
+    "tips": [
+      "全程保持膝盖微屈",
+      "最高点停留1-2秒",
+      "缓慢下降至最大拉伸",
+      "可以选择脚尖朝内/外刺激不同部位"
+    ]
+  },
+  {
+    "id": "lunges",
+    "name": "箭步蹲",
+    "nameEn": "Lunges",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "双手持哑铃站立，一脚向前迈出大步，同时屈膝下蹲至后膝接近地面（前后膝均为90度），然后前脚发力推回起始位置。",
+    "tips": [
+      "保持上身挺直",
+      "前膝不要超过脚尖",
+      "后膝轻轻触地即可",
+      "核心收紧保持平衡"
+    ]
+  },
+  {
+    "id": "overhead-press",
+    "name": "杠铃推举",
+    "nameEn": "Overhead Press",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [
+      "arms",
+      "core"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "双脚与肩同宽站立，杠铃置于锁骨前，将杠铃向上推至头顶上方手臂伸直，过程中头微后仰为杠铃让出路径。",
+    "tips": [
+      "核心收紧保护腰椎",
+      "杠铃脸部前方直线上推",
+      "顶部锁定位置在耳朵上方",
+      "不要过度后仰"
+    ]
+  },
+  {
+    "id": "dumbbell-shoulder-press",
+    "name": "哑铃推肩",
+    "nameEn": "Dumbbell Shoulder Press",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [
+      "arms",
+      "core"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "坐在直角凳上，双手各持哑铃置于肩部高度，将哑铃向上推至头顶上方手臂接近伸直，顶峰收缩后缓慢下放。",
+    "tips": [
+      "靠背保持在85-90度",
+      "手臂不完全锁死",
+      "哑铃微微向内倾斜",
+      "顶峰时向中间挤压腕部"
+    ]
+  },
+  {
+    "id": "lateral-raises",
+    "name": "侧平举",
+    "nameEn": "Lateral Raises",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "双手持哑铃站立或坐姿，手臂微屈，从身体两侧将哑铃上举至肩部高度，像倒水一样，顶峰收缩三角肌中束后缓慢下放。",
+    "tips": [
+      "手肘微屈（约15度）",
+      "小拇指略高于拇指（倒水姿势）",
+      "不要耸肩借力",
+      "使用轻重量高次数",
+      "感受中束隔离发力"
+    ]
+  },
+  {
+    "id": "front-raises",
+    "name": "前平举",
+    "nameEn": "Front Raises",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "双手持哑铃站立，手臂微屈，从身体前方将哑铃上举至肩部高度，顶峰收缩三角肌前束后缓慢下放。",
+    "tips": [
+      "不要用身体摆动借力",
+      "举到与肩齐平即可",
+      "可以双手交替进行",
+      "手掌可朝下或掌心相对"
+    ]
+  },
+  {
+    "id": "rear-delt-flyes",
+    "name": "俯身飞鸟",
+    "nameEn": "Rear Delt Flyes",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [
+      "back"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "弯腰前倾至躯干接近平行地面，双手持哑铃自然下垂，手臂微屈将哑铃向两侧抬起至与肩齐平，顶峰收缩三角肌后束后缓慢下放。",
+    "tips": [
+      "保持躯干稳定",
+      "感受后束发力",
+      "小拇指略微朝上增加收缩",
+      "使用轻重量避免斜方肌借力"
+    ]
+  },
+  {
+    "id": "arnold-press",
+    "name": "阿诺德推举",
+    "nameEn": "Arnold Press",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "坐姿，哑铃置于肩前掌心面向自己，向上推起同时旋转手腕（掌心转为向前），在顶部手臂伸直，顶峰收缩后反向旋转还原。",
+    "tips": [
+      "旋转动作贯穿全程",
+      "顶峰手臂不要完全锁死",
+      "控制还原的旋转",
+      "可以按常规推举+旋转理解为两段式"
+    ]
+  },
+  {
+    "id": "upright-row",
+    "name": "直立划船",
+    "nameEn": "Upright Row",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [
+      "back"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "双手与肩同宽正握杠铃，将杠铃沿身体前方提拉至下颚高度，保持肘部向外上方提起。",
+    "tips": [
+      "不要提拉过高（杠铃到胸口即可）",
+      "肘部始终高于手腕",
+      "窄握距更多刺激斜方肌",
+      "肩部撞击者慎做"
+    ]
+  },
+  {
+    "id": "shrugs",
+    "name": "杠铃耸肩",
+    "nameEn": "Barbell Shrugs",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "shoulders"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "beginner",
+    "description": "双手与肩同宽持杠铃站立，手臂自然下垂，用斜方肌力量将双肩上提至最高点，顶峰收缩1-2秒后缓慢放松还原。",
+    "tips": [
+      "不要旋转肩膀（直上直下）",
+      "最大上提位置停留",
+      "可以使用助力带",
+      "大重量时考虑正反握"
+    ]
+  },
+  {
+    "id": "seated-calf-raises",
+    "name": "坐姿提踵",
+    "nameEn": "Seated Calf Raises",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [],
+    "equipment": "坐姿提踵机",
+    "difficulty": "beginner",
+    "description": "坐在坐姿提踵机上，前脚掌踩在踏板上，大腿上方放好负重，将脚跟下放至最大拉伸，然后发力提踵至最高点。",
+    "tips": [
+      "保持膝盖位置不变",
+      "最高点停留1-2秒",
+      "控制下降速度",
+      "坐姿更多刺激比目鱼肌"
+    ]
+  },
+  {
+    "id": "glute-bridge",
+    "name": "臀桥",
+    "nameEn": "Glute Bridge",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "仰卧屈膝，双脚踩地，臀部发力将骨盆向上推至身体呈一条直线，顶峰收缩臀部后缓慢下放。",
+    "tips": [
+      "顶峰时骨盆不要过度前倾",
+      "膝盖不要内扣",
+      "可以单腿进行增加难度",
+      "可以在髋部加杠铃负重"
+    ]
+  },
+  {
+    "id": "sumo-deadlift",
+    "name": "相扑硬拉",
+    "nameEn": "Sumo Deadlift",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "back"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "双脚较宽跨站（比肩宽很多），脚尖外八，双手在双腿之间握住杠铃（比常规窄握距），进行硬拉。",
+    "tips": [
+      "保持膝盖和脚尖同方向",
+      "外八字角度因人而异",
+      "杠铃靠近身体垂直拉起",
+      "更多募集臀部和内收肌"
+    ]
+  },
+  {
+    "id": "good-morning",
+    "name": "早安式",
+    "nameEn": "Good Morning",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "back",
+      "core"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "将杠铃置于斜方肌上（同深蹲），膝盖微屈，保持背部挺直，屈髋将上半身前倾至接近90度或腘绳肌感到明显拉伸，然后髋部发力还原。",
+    "tips": [
+      "起始动作一定要轻",
+      "保持脊椎平直不能弓背",
+      "膝盖保持微屈不弯曲",
+      "核心收紧防塌腰",
+      "切勿使用大重量"
+    ]
+  },
+  {
+    "id": "box-jumps",
+    "name": "跳箱",
+    "nameEn": "Box Jumps",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "跳箱",
+    "difficulty": "beginner",
+    "description": "面对跳箱站立，双脚与肩同宽，快速下蹲并爆发跳上箱面，稳定着陆后站直，然后后退下箱。",
+    "tips": [
+      "充分热身",
+      "选择合适高度",
+      "着陆时吸收冲击",
+      "跳上去走下来（安全）"
+    ]
+  },
+  {
+    "id": "plank",
+    "name": "平板支撑",
+    "nameEn": "Plank",
+    "muscleGroup": "core",
+    "secondaryMuscles": [
+      "shoulders"
+    ],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "俯卧，以肘部和前脚掌支撑身体，身体从头到脚跟呈一条直线，收紧核心和臀部，保持此姿势。",
+    "tips": [
+      "核心收紧不要塌腰",
+      "不要抬头或低头",
+      "臀部不要上翘",
+      "从30秒开始逐渐增加"
+    ]
+  },
+  {
+    "id": "crunches",
+    "name": "卷腹",
+    "nameEn": "Crunches",
+    "muscleGroup": "core",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "仰卧屈膝，双手抱头或交叉于胸前，用腹肌力量将肩胛骨抬离地面，顶峰收缩腹肌后缓慢还原。注意：不是坐起来，只是肩胛骨离地。",
+    "tips": [
+      "下巴收紧（下巴和胸口之间放一个拳头距离）",
+      "眼睛看天花板",
+      "用腹肌发力不靠颈部",
+      "缓慢控制还原"
+    ]
+  },
+  {
+    "id": "russian-twist",
+    "name": "俄罗斯转体",
+    "nameEn": "Russian Twist",
+    "muscleGroup": "core",
+    "secondaryMuscles": [],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "坐姿，身体后倾约45度，双脚离地或触地，双手持哑铃置于体前，左右旋转上身。",
+    "tips": [
+      "保持背部挺直",
+      "转动来自腰部不来自臀部",
+      "保持稳定呼吸",
+      "可以双脚着地降低难度"
+    ]
+  },
+  {
+    "id": "leg-raises",
+    "name": "仰卧举腿",
+    "nameEn": "Leg Raises",
+    "muscleGroup": "core",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "仰卧，双腿伸直并拢，将双腿上举至与地面垂直或略过，顶峰收缩腹肌后缓慢下放至快触地但不触地。",
+    "tips": [
+      "下背始终贴住地面（可手心放在臀部下方）",
+      "控制下放速度不靠惯性",
+      "不要憋气",
+      "膝盖可微屈降低难度"
+    ]
+  },
+  {
+    "id": "hanging-leg-raises",
+    "name": "悬垂举腿",
+    "nameEn": "Hanging Leg Raises",
+    "muscleGroup": "core",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "单杠",
+    "difficulty": "advanced",
+    "description": "双手抓单杠悬垂，双腿并拢伸直，用腹肌发力将腿抬至与地面平行或更高，顶峰收缩后缓慢下放。",
+    "tips": [
+      "避免身体摆动，控制动作",
+      "上抬时吐气",
+      "可以屈膝降低难度",
+      "不要用惯性"
+    ]
+  },
+  {
+    "id": "bicycle-crunches",
+    "name": "空中蹬车",
+    "nameEn": "Bicycle Crunches",
+    "muscleGroup": "core",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "仰卧，双手抱头，膝盖抬起至90度，交替将右肘触左膝、左肘触右膝，模拟蹬自行车动作。",
+    "tips": [
+      "核心全程收紧",
+      "动作缓慢有控制",
+      "感受腹斜肌用力",
+      "颈部放松，不要用手拉头"
+    ]
+  },
+  {
+    "id": "mountain-climbers",
+    "name": "登山者",
+    "nameEn": "Mountain Climbers",
+    "muscleGroup": "core",
+    "secondaryMuscles": [
+      "legs",
+      "shoulders"
+    ],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "直臂平板支撑姿势，快速交替将膝盖向胸口拉近，如跑步动作。",
+    "tips": [
+      "核心收紧防止臀部上翘",
+      "保持稳定步频",
+      "双手撑稳肩部正下方",
+      "可以放慢速度降低强度"
+    ]
+  },
+  {
+    "id": "ab-wheel-rollout",
+    "name": "健腹轮",
+    "nameEn": "Ab Wheel Rollout",
+    "muscleGroup": "core",
+    "secondaryMuscles": [
+      "shoulders",
+      "back"
+    ],
+    "equipment": "健腹轮",
+    "difficulty": "advanced",
+    "description": "跪姿，双手握健腹轮置于地面，缓慢将滚轮向前推动身体随之伸展，至极限后（身体接近平行地面）用腹肌发力将滚轮拉回。",
+    "tips": [
+      "核心全程收紧",
+      "只推到能控制返回的距离",
+      "不要塌腰弓背",
+      "初学者可以做半程或靠墙限制"
+    ]
+  },
+  {
+    "id": "dead-bug",
+    "name": "死虫式",
+    "nameEn": "Dead Bug",
+    "muscleGroup": "core",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "仰卧，双手举向天花板，膝盖弯曲90度抬起小腿平行地面。同时缓慢将对侧手和脚向地面下放，然后归位，换另一侧交替进行。",
+    "tips": [
+      "腰部始终贴紧地面",
+      "下放时吐气",
+      "动作缓慢有控制",
+      "想象腹肌把腰椎压向地面"
+    ]
+  },
+  {
+    "id": "decline-dumbbell-press",
+    "name": "下斜哑铃卧推",
+    "nameEn": "Decline Dumbbell Press",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "下斜哑铃卧推——chest肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "machine-chest-press",
+    "name": "器械推胸",
+    "nameEn": "Machine Chest Press",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [],
+    "equipment": "推胸机",
+    "difficulty": "beginner",
+    "description": "器械推胸——chest肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "smith-bench-press",
+    "name": "史密斯卧推",
+    "nameEn": "Smith Bench Press",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [],
+    "equipment": "史密斯机",
+    "difficulty": "beginner",
+    "description": "史密斯卧推——chest肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "band-push-ups",
+    "name": "弹力带俯卧撑",
+    "nameEn": "Band Push-ups",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "弹力带",
+    "difficulty": "beginner",
+    "description": "弹力带俯卧撑——chest肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "clap-push-ups",
+    "name": "击掌俯卧撑",
+    "nameEn": "Clap Push-ups",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "无",
+    "difficulty": "advanced",
+    "description": "击掌俯卧撑——chest肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "plyo-push-ups",
+    "name": "爆发俯卧撑",
+    "nameEn": "Plyometric Push-ups",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "无",
+    "difficulty": "advanced",
+    "description": "爆发俯卧撑——chest肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "decline-push-ups",
+    "name": "下斜俯卧撑",
+    "nameEn": "Decline Push-ups",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "长凳",
+    "difficulty": "beginner",
+    "description": "下斜俯卧撑——chest肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "incline-push-ups",
+    "name": "上斜俯卧撑",
+    "nameEn": "Incline Push-ups",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [],
+    "equipment": "长凳",
+    "difficulty": "beginner",
+    "description": "上斜俯卧撑——chest肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "spiderman-push-ups",
+    "name": "蜘蛛侠俯卧撑",
+    "nameEn": "Spiderman Push-ups",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "无",
+    "difficulty": "intermediate",
+    "description": "蜘蛛侠俯卧撑——chest肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "cable-lower-chest-fly",
+    "name": "低位绳索飞鸟",
+    "nameEn": "Low Cable Fly",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [],
+    "equipment": "绳索机",
+    "difficulty": "intermediate",
+    "description": "低位绳索飞鸟——chest肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "squeeze-press",
+    "name": "挤压卧推",
+    "nameEn": "Squeeze Press",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "挤压卧推——chest肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "floor-press",
+    "name": "地板卧推",
+    "nameEn": "Floor Press",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "地板卧推——chest肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "wide-grip-pulldown",
+    "name": "宽距高位下拉",
+    "nameEn": "Wide Grip Lat Pulldown",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "高位下拉机",
+    "difficulty": "beginner",
+    "description": "宽距高位下拉——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "close-grip-pulldown",
+    "name": "窄距高位下拉",
+    "nameEn": "Close Grip Lat Pulldown",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "高位下拉机",
+    "difficulty": "beginner",
+    "description": "窄距高位下拉——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "reverse-grip-pulldown",
+    "name": "反握高位下拉",
+    "nameEn": "Reverse Grip Lat Pulldown",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "高位下拉机",
+    "difficulty": "beginner",
+    "description": "反握高位下拉——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "straight-arm-pulldown",
+    "name": "直臂下拉",
+    "nameEn": "Straight Arm Pulldown",
+    "muscleGroup": "back",
+    "secondaryMuscles": [],
+    "equipment": "绳索机",
+    "difficulty": "beginner",
+    "description": "直臂下拉——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "meadows-row",
+    "name": "梅多斯划船",
+    "nameEn": "Meadows Row",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "梅多斯划船——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "inverted-row",
+    "name": "反向划船",
+    "nameEn": "Inverted Row",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "史密斯机",
+    "difficulty": "beginner",
+    "description": "反向划船——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "seal-row",
+    "name": "海豹划船",
+    "nameEn": "Seal Row",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "海豹划船——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "kroc-row",
+    "name": "克罗克划船",
+    "nameEn": "Kroc Row",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "advanced",
+    "description": "克罗克划船——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "dead-stop-row",
+    "name": "停顿划船",
+    "nameEn": "Dead Stop Row",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "停顿划船——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "landmine-row",
+    "name": "地雷管划船",
+    "nameEn": "Landmine Row",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "地雷管",
+    "difficulty": "intermediate",
+    "description": "地雷管划船——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "rack-chins",
+    "name": "架式引体",
+    "nameEn": "Rack Chins",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "史密斯机",
+    "difficulty": "intermediate",
+    "description": "架式引体——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "weighted-pull-ups",
+    "name": "负重引体向上",
+    "nameEn": "Weighted Pull-ups",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "负重腰带",
+    "difficulty": "advanced",
+    "description": "负重引体向上——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "seated-dumbbell-press",
+    "name": "坐姿哑铃推举",
+    "nameEn": "Seated Dumbbell Press",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "坐姿哑铃推举——shoulders肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "machine-shoulder-press",
+    "name": "器械推肩",
+    "nameEn": "Machine Shoulder Press",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [],
+    "equipment": "推肩机",
+    "difficulty": "beginner",
+    "description": "器械推肩——shoulders肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "smith-shoulder-press",
+    "name": "史密斯推肩",
+    "nameEn": "Smith Shoulder Press",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "史密斯机",
+    "difficulty": "beginner",
+    "description": "史密斯推肩——shoulders肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "push-press",
+    "name": "借力推举",
+    "nameEn": "Push Press",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [
+      "legs"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "advanced",
+    "description": "借力推举——shoulders肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "cable-lateral-raises",
+    "name": "绳索侧平举",
+    "nameEn": "Cable Lateral Raise",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [],
+    "equipment": "绳索机",
+    "difficulty": "beginner",
+    "description": "绳索侧平举——shoulders肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "lu-raises",
+    "name": "Lu式侧平举",
+    "nameEn": "Lu Raises",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "Lu式侧平举——shoulders肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "y-raises",
+    "name": "Y型平举",
+    "nameEn": "Y Raises",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [
+      "back"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "Y型平举——shoulders肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "cuban-press",
+    "name": "古巴推举",
+    "nameEn": "Cuban Press",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "古巴推举——shoulders肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "plate-front-raises",
+    "name": "杠铃片前平举",
+    "nameEn": "Plate Front Raise",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [],
+    "equipment": "杠铃片",
+    "difficulty": "beginner",
+    "description": "杠铃片前平举——shoulders肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "cable-rear-delt-fly",
+    "name": "绳索后束飞鸟",
+    "nameEn": "Cable Rear Delt Fly",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [
+      "back"
+    ],
+    "equipment": "绳索机",
+    "difficulty": "beginner",
+    "description": "绳索后束飞鸟——shoulders肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "reverse-pec-deck",
+    "name": "反向蝴蝶机",
+    "nameEn": "Reverse Pec Deck",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [
+      "back"
+    ],
+    "equipment": "蝴蝶机",
+    "difficulty": "beginner",
+    "description": "反向蝴蝶机——shoulders肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "bent-over-cable-fly",
+    "name": "俯身绳索飞鸟",
+    "nameEn": "Bent Over Cable Fly",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [
+      "back"
+    ],
+    "equipment": "绳索机",
+    "difficulty": "beginner",
+    "description": "俯身绳索飞鸟——shoulders肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "ez-bar-curl",
+    "name": "EZ杆弯举",
+    "nameEn": "EZ Bar Curl",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [],
+    "equipment": "EZ杆",
+    "difficulty": "beginner",
+    "description": "EZ杆弯举——arms肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "incline-dumbbell-curl",
+    "name": "上斜哑铃弯举",
+    "nameEn": "Incline Dumbbell Curl",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "上斜哑铃弯举——arms肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "spider-curl",
+    "name": "蜘蛛弯举",
+    "nameEn": "Spider Curl",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "蜘蛛弯举——arms肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "drag-curl",
+    "name": "拖拽弯举",
+    "nameEn": "Drag Curl",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "拖拽弯举——arms肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "zottman-curl",
+    "name": "佐特曼弯举",
+    "nameEn": "Zottman Curl",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "佐特曼弯举——arms肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "reverse-curl",
+    "name": "反握弯举",
+    "nameEn": "Reverse Curl",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "beginner",
+    "description": "反握弯举——arms肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "wrist-curl",
+    "name": "腕弯举",
+    "nameEn": "Wrist Curl",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "腕弯举——arms肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "reverse-wrist-curl",
+    "name": "反握腕弯举",
+    "nameEn": "Reverse Wrist Curl",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "反握腕弯举——arms肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "tricep-kickback",
+    "name": "哑铃俯身臂屈伸",
+    "nameEn": "Tricep Kickback",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "哑铃俯身臂屈伸——arms肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "bench-dips",
+    "name": "凳上臂屈伸",
+    "nameEn": "Bench Dips",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [
+      "chest"
+    ],
+    "equipment": "长凳",
+    "difficulty": "beginner",
+    "description": "凳上臂屈伸——arms肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "rope-pushdown",
+    "name": "绳索下压",
+    "nameEn": "Rope Pushdown",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [],
+    "equipment": "绳索机",
+    "difficulty": "beginner",
+    "description": "绳索下压——arms肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "single-arm-pushdown",
+    "name": "单臂下压",
+    "nameEn": "Single Arm Pushdown",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [],
+    "equipment": "绳索机",
+    "difficulty": "beginner",
+    "description": "单臂下压——arms肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "hack-squat",
+    "name": "哈克深蹲",
+    "nameEn": "Hack Squat",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [],
+    "equipment": "哈克机",
+    "difficulty": "intermediate",
+    "description": "哈克深蹲——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "pistol-squat",
+    "name": "手枪深蹲",
+    "nameEn": "Pistol Squat",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "无",
+    "difficulty": "advanced",
+    "description": "手枪深蹲——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "jump-squat",
+    "name": "跳跃深蹲",
+    "nameEn": "Jump Squat",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "无",
+    "difficulty": "intermediate",
+    "description": "跳跃深蹲——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "sissy-squat",
+    "name": "西斯深蹲",
+    "nameEn": "Sissy Squat",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "advanced",
+    "description": "西斯深蹲——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "cossack-squat",
+    "name": "哥萨克深蹲",
+    "nameEn": "Cossack Squat",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "intermediate",
+    "description": "哥萨克深蹲——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "walking-lunges",
+    "name": "行走箭步蹲",
+    "nameEn": "Walking Lunges",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "行走箭步蹲——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "reverse-lunges",
+    "name": "反向箭步蹲",
+    "nameEn": "Reverse Lunges",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "反向箭步蹲——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "lateral-lunges",
+    "name": "侧箭步蹲",
+    "nameEn": "Lateral Lunges",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "侧箭步蹲——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "curtsy-lunges",
+    "name": "屈膝礼箭步蹲",
+    "nameEn": "Curtsy Lunges",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "屈膝礼箭步蹲——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "smith-squat",
+    "name": "史密斯深蹲",
+    "nameEn": "Smith Squat",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "史密斯机",
+    "difficulty": "beginner",
+    "description": "史密斯深蹲——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "landmine-squat",
+    "name": "地雷管深蹲",
+    "nameEn": "Landmine Squat",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "地雷管",
+    "difficulty": "beginner",
+    "description": "地雷管深蹲——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "barbell-hip-thrust",
+    "name": "杠铃臀推",
+    "nameEn": "Barbell Hip Thrust",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "杠铃臀推——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "single-leg-hip-thrust",
+    "name": "单腿臀推",
+    "nameEn": "Single Leg Hip Thrust",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "长凳",
+    "difficulty": "intermediate",
+    "description": "单腿臀推——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "cable-pull-through",
+    "name": "绳索拉穿",
+    "nameEn": "Cable Pull Through",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "back"
+    ],
+    "equipment": "绳索机",
+    "difficulty": "beginner",
+    "description": "绳索拉穿——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "nordic-curl",
+    "name": "北欧弯举",
+    "nameEn": "Nordic Curl",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "advanced",
+    "description": "北欧弯举——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "donkey-calf-raises",
+    "name": "驴式提踵",
+    "nameEn": "Donkey Calf Raises",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [],
+    "equipment": "提踵机",
+    "difficulty": "intermediate",
+    "description": "驴式提踵——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "single-leg-calf-raises",
+    "name": "单腿提踵",
+    "nameEn": "Single Leg Calf Raises",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "单腿提踵——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "adductor-machine",
+    "name": "坐姿夹腿机",
+    "nameEn": "Adductor Machine",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [],
+    "equipment": "夹腿机",
+    "difficulty": "beginner",
+    "description": "坐姿夹腿机——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "abductor-machine",
+    "name": "坐姿分腿机",
+    "nameEn": "Abductor Machine",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [],
+    "equipment": "分腿机",
+    "difficulty": "beginner",
+    "description": "坐姿分腿机——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "side-plank",
+    "name": "侧平板支撑",
+    "nameEn": "Side Plank",
+    "muscleGroup": "core",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "侧平板支撑——core肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "flutter-kicks",
+    "name": "打水式",
+    "nameEn": "Flutter Kicks",
+    "muscleGroup": "core",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "打水式——core肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "heel-touches",
+    "name": "触踝卷腹",
+    "nameEn": "Heel Touches",
+    "muscleGroup": "core",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "触踝卷腹——core肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "v-ups",
+    "name": "V字仰卧起坐",
+    "nameEn": "V-Ups",
+    "muscleGroup": "core",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "intermediate",
+    "description": "V字仰卧起坐——core肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "l-sit",
+    "name": "L悬垂",
+    "nameEn": "L-Sit",
+    "muscleGroup": "core",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "双杠",
+    "difficulty": "advanced",
+    "description": "L悬垂——core肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "cable-crunches",
+    "name": "绳索卷腹",
+    "nameEn": "Cable Crunches",
+    "muscleGroup": "core",
+    "secondaryMuscles": [],
+    "equipment": "绳索机",
+    "difficulty": "intermediate",
+    "description": "绳索卷腹——core肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "pallof-press",
+    "name": "帕罗夫推",
+    "nameEn": "Pallof Press",
+    "muscleGroup": "core",
+    "secondaryMuscles": [],
+    "equipment": "绳索机",
+    "difficulty": "beginner",
+    "description": "帕罗夫推——core肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "woodchopper",
+    "name": "伐木者",
+    "nameEn": "Woodchopper",
+    "muscleGroup": "core",
+    "secondaryMuscles": [],
+    "equipment": "绳索机",
+    "difficulty": "beginner",
+    "description": "伐木者——core肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "toe-touches",
+    "name": "脚尖触碰",
+    "nameEn": "Toe Touches",
+    "muscleGroup": "core",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "脚尖触碰——core肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "reverse-crunches",
+    "name": "反向卷腹",
+    "nameEn": "Reverse Crunches",
+    "muscleGroup": "core",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "反向卷腹——core肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "hollow-body-hold",
+    "name": "空心体保持",
+    "nameEn": "Hollow Body Hold",
+    "muscleGroup": "core",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "intermediate",
+    "description": "空心体保持——core肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "bird-dog",
+    "name": "鸟狗式",
+    "nameEn": "Bird Dog",
+    "muscleGroup": "core",
+    "secondaryMuscles": [
+      "back"
+    ],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "鸟狗式——core肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "burpees",
+    "name": "波比跳",
+    "nameEn": "Burpees",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "intermediate",
+    "description": "波比跳——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "thrusters",
+    "name": "推蹲",
+    "nameEn": "Thrusters",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [
+      "shoulders",
+      "legs"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "推蹲——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "kettlebell-swings",
+    "name": "壶铃摇摆",
+    "nameEn": "Kettlebell Swings",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [
+      "legs",
+      "back"
+    ],
+    "equipment": "壶铃",
+    "difficulty": "intermediate",
+    "description": "壶铃摇摆——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "clean-and-press",
+    "name": "高翻推举",
+    "nameEn": "Clean and Press",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [
+      "shoulders",
+      "legs",
+      "back"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "advanced",
+    "description": "高翻推举——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "snatch",
+    "name": "抓举",
+    "nameEn": "Snatch",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [
+      "shoulders",
+      "legs",
+      "back"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "advanced",
+    "description": "抓举——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "turkish-get-up",
+    "name": "土耳其起身",
+    "nameEn": "Turkish Get Up",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [
+      "core",
+      "shoulders"
+    ],
+    "equipment": "壶铃",
+    "difficulty": "advanced",
+    "description": "土耳其起身——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "battle-ropes",
+    "name": "战绳",
+    "nameEn": "Battle Ropes",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [
+      "shoulders",
+      "arms"
+    ],
+    "equipment": "战绳",
+    "difficulty": "intermediate",
+    "description": "战绳——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "sled-push",
+    "name": "雪橇推",
+    "nameEn": "Sled Push",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [
+      "legs"
+    ],
+    "equipment": "雪橇",
+    "difficulty": "intermediate",
+    "description": "雪橇推——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "sled-pull",
+    "name": "雪橇拉",
+    "nameEn": "Sled Pull",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [
+      "back",
+      "legs"
+    ],
+    "equipment": "雪橇",
+    "difficulty": "intermediate",
+    "description": "雪橇拉——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "farmer-walk",
+    "name": "农夫行走",
+    "nameEn": "Farmer Walk",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "农夫行走——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "wall-balls",
+    "name": "墙球",
+    "nameEn": "Wall Balls",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [
+      "legs",
+      "shoulders"
+    ],
+    "equipment": "药球",
+    "difficulty": "intermediate",
+    "description": "墙球——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "rowing-machine",
+    "name": "划船机",
+    "nameEn": "Rowing Machine",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [
+      "back",
+      "legs"
+    ],
+    "equipment": "划船机",
+    "difficulty": "beginner",
+    "description": "划船机——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "assault-bike",
+    "name": "阻力单车",
+    "nameEn": "Assault Bike",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [
+      "legs"
+    ],
+    "equipment": "阻力单车",
+    "difficulty": "intermediate",
+    "description": "阻力单车——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "barbell-complex",
+    "name": "杠铃复合",
+    "nameEn": "Barbell Complex",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [],
+    "equipment": "杠铃",
+    "difficulty": "advanced",
+    "description": "杠铃复合——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "sandbag-carry",
+    "name": "沙袋搬运",
+    "nameEn": "Sandbag Carry",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "沙袋",
+    "difficulty": "intermediate",
+    "description": "沙袋搬运——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "cable-chest-press",
+    "name": "绳索推胸",
+    "nameEn": "Cable Chest Press",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "绳索机",
+    "difficulty": "beginner",
+    "description": "绳索推胸——chest肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "svend-press",
+    "name": "斯文德推胸",
+    "nameEn": "Svend Press",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [],
+    "equipment": "杠铃片",
+    "difficulty": "intermediate",
+    "description": "斯文德推胸——chest肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "single-arm-cable-fly",
+    "name": "单臂绳索飞鸟",
+    "nameEn": "Single Arm Cable Fly",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [],
+    "equipment": "绳索机",
+    "difficulty": "beginner",
+    "description": "单臂绳索飞鸟——chest肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "band-flyes",
+    "name": "弹力带飞鸟",
+    "nameEn": "Band Flyes",
+    "muscleGroup": "chest",
+    "secondaryMuscles": [],
+    "equipment": "弹力带",
+    "difficulty": "beginner",
+    "description": "弹力带飞鸟——chest肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "cable-curl-21",
+    "name": "绳索21响弯举",
+    "nameEn": "Cable 21s Curl",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [],
+    "equipment": "绳索机",
+    "difficulty": "intermediate",
+    "description": "绳索21响弯举——arms肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "barbell-21",
+    "name": "杠铃21响",
+    "nameEn": "Barbell 21s",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "杠铃21响——arms肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "pinwheel-curl",
+    "name": "风车弯举",
+    "nameEn": "Pinwheel Curl",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "beginner",
+    "description": "风车弯举——arms肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "bayesian-curl",
+    "name": "贝叶斯弯举",
+    "nameEn": "Bayesian Curl",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [],
+    "equipment": "绳索机",
+    "difficulty": "intermediate",
+    "description": "贝叶斯弯举——arms肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "floor-skull-crusher",
+    "name": "地板臂屈伸",
+    "nameEn": "Floor Skull Crusher",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [],
+    "equipment": "EZ杆",
+    "difficulty": "intermediate",
+    "description": "地板臂屈伸——arms肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "tate-press",
+    "name": "泰特推举",
+    "nameEn": "Tate Press",
+    "muscleGroup": "arms",
+    "secondaryMuscles": [],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "泰特推举——arms肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "defranco-row",
+    "name": "德弗兰科划船",
+    "nameEn": "DeFranco Row",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "德弗兰科划船——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "chest-supported-row",
+    "name": "护胸划船",
+    "nameEn": "Chest Supported Row",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "护胸划船——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "helms-row",
+    "name": "赫尔姆斯划船",
+    "nameEn": "Helms Row",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "赫尔姆斯划船——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "prone-incline-row",
+    "name": "俯卧上斜划船",
+    "nameEn": "Prone Incline Row",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "俯卧上斜划船——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "ren-rows",
+    "name": "Ren划船",
+    "nameEn": "Renegade Rows",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "core",
+      "arms"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "Ren划船——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "dead-hang",
+    "name": "悬垂",
+    "nameEn": "Dead Hang",
+    "muscleGroup": "back",
+    "secondaryMuscles": [],
+    "equipment": "单杠",
+    "difficulty": "beginner",
+    "description": "悬垂——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "scapular-pull-ups",
+    "name": "肩胛骨引体",
+    "nameEn": "Scapular Pull-ups",
+    "muscleGroup": "back",
+    "secondaryMuscles": [],
+    "equipment": "单杠",
+    "difficulty": "beginner",
+    "description": "肩胛骨引体——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "band-pull-apart",
+    "name": "弹力带拉开",
+    "nameEn": "Band Pull Apart",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "shoulders"
+    ],
+    "equipment": "弹力带",
+    "difficulty": "beginner",
+    "description": "弹力带拉开——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "barbell-pendlay-row",
+    "name": "杠铃彭德莱划船",
+    "nameEn": "Barbell Pendlay Row",
+    "muscleGroup": "back",
+    "secondaryMuscles": [
+      "arms"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "杠铃彭德莱划船——back肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "step-ups",
+    "name": "踏步",
+    "nameEn": "Step Ups",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "长凳",
+    "difficulty": "beginner",
+    "description": "踏步——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "frog-pumps",
+    "name": "蛙式臀推",
+    "nameEn": "Frog Pumps",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "蛙式臀推——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "clamshells",
+    "name": "蚌式开合",
+    "nameEn": "Clamshells",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [],
+    "equipment": "弹力带",
+    "difficulty": "beginner",
+    "description": "蚌式开合——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "monster-walk",
+    "name": "怪兽步",
+    "nameEn": "Monster Walk",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [],
+    "equipment": "弹力带",
+    "difficulty": "beginner",
+    "description": "怪兽步——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "wall-sit",
+    "name": "靠墙静蹲",
+    "nameEn": "Wall Sit",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "靠墙静蹲——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "peterson-steps",
+    "name": "彼得森踏步",
+    "nameEn": "Peterson Step Up",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [],
+    "equipment": "长凳",
+    "difficulty": "intermediate",
+    "description": "彼得森踏步——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "b-stance-rdl",
+    "name": "B站姿硬拉",
+    "nameEn": "B-Stance RDL",
+    "muscleGroup": "legs",
+    "secondaryMuscles": [
+      "back"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "B站姿硬拉——legs肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "handstand-push-ups",
+    "name": "倒立俯卧撑",
+    "nameEn": "Handstand Push Ups",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [
+      "arms",
+      "core"
+    ],
+    "equipment": "无",
+    "difficulty": "advanced",
+    "description": "倒立俯卧撑——shoulders肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "klokov-press",
+    "name": "克洛克夫推举",
+    "nameEn": "Klokov Press",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [],
+    "equipment": "杠铃",
+    "difficulty": "advanced",
+    "description": "克洛克夫推举——shoulders肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "bradford-press",
+    "name": "布拉德福德推举",
+    "nameEn": "Bradford Press",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "布拉德福德推举——shoulders肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "z-press",
+    "name": "Z字推举",
+    "nameEn": "Z Press",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [
+      "core"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "Z字推举——shoulders肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "scarecrow-press",
+    "name": "稻草人推举",
+    "nameEn": "Scarecrow Press",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "稻草人推举——shoulders肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "six-ways",
+    "name": "六方向",
+    "nameEn": "Six Ways",
+    "muscleGroup": "shoulders",
+    "secondaryMuscles": [],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "六方向——shoulders肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "long-lever-plank",
+    "name": "长杠杆平板支撑",
+    "nameEn": "Long Lever Plank",
+    "muscleGroup": "core",
+    "secondaryMuscles": [
+      "shoulders"
+    ],
+    "equipment": "无",
+    "difficulty": "intermediate",
+    "description": "长杠杆平板支撑——core肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "star-plank",
+    "name": "星形平板支撑",
+    "nameEn": "Star Plank",
+    "muscleGroup": "core",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "advanced",
+    "description": "星形平板支撑——core肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "dragon-flags",
+    "name": "龙旗",
+    "nameEn": "Dragon Flags",
+    "muscleGroup": "core",
+    "secondaryMuscles": [],
+    "equipment": "长凳",
+    "difficulty": "advanced",
+    "description": "龙旗——core肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "copenhagen-plank",
+    "name": "哥本哈根平板",
+    "nameEn": "Copenhagen Plank",
+    "muscleGroup": "core",
+    "secondaryMuscles": [],
+    "equipment": "长凳",
+    "difficulty": "intermediate",
+    "description": "哥本哈根平板——core肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "dead-bug-variation",
+    "name": "死虫式变体",
+    "nameEn": "Dead Bug Variation",
+    "muscleGroup": "core",
+    "secondaryMuscles": [],
+    "equipment": "无",
+    "difficulty": "beginner",
+    "description": "死虫式变体——core肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "medicine-ball-slams",
+    "name": "药球砸地",
+    "nameEn": "Medicine Ball Slams",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [
+      "shoulders",
+      "core"
+    ],
+    "equipment": "药球",
+    "difficulty": "intermediate",
+    "description": "药球砸地——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "barbell-push-press",
+    "name": "杠铃借力推举",
+    "nameEn": "Barbell Push Press",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [
+      "shoulders",
+      "legs"
+    ],
+    "equipment": "杠铃",
+    "difficulty": "intermediate",
+    "description": "杠铃借力推举——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "dumbbell-devil-press",
+    "name": "哑铃魔鬼推",
+    "nameEn": "Dumbbell Devil Press",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [
+      "shoulders",
+      "legs"
+    ],
+    "equipment": "哑铃",
+    "difficulty": "intermediate",
+    "description": "哑铃魔鬼推——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "tire-flips",
+    "name": "翻轮胎",
+    "nameEn": "Tire Flips",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [
+      "legs",
+      "back"
+    ],
+    "equipment": "轮胎",
+    "difficulty": "advanced",
+    "description": "翻轮胎——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  },
+  {
+    "id": "battling-rope-slams",
+    "name": "战绳砸",
+    "nameEn": "Battling Rope Slams",
+    "muscleGroup": "full_body",
+    "secondaryMuscles": [
+      "shoulders",
+      "arms"
+    ],
+    "equipment": "战绳",
+    "difficulty": "intermediate",
+    "description": "战绳砸——full_body肌群锻炼动作。",
+    "tips": [
+      "保持动作标准",
+      "控制节奏和呼吸",
+      "根据能力选择合适重量"
+    ]
+  }
+]

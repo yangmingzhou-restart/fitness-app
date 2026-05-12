@@ -33,7 +33,9 @@ function getWeekRange(): { start: string; end: string } {
 
 function getMonthRange(firstRecordDate: string | null): { start: string; end: string } {
   const now = new Date();
-  const end = fmtLocal(now);
+  const tomorrow = new Date(now);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const end = fmtLocal(tomorrow);
 
   if (!firstRecordDate) {
     const start = new Date(now);
@@ -114,7 +116,7 @@ export default function AnalyticsScreen() {
     });
   };
 
-  const maxCount = Math.max(...stats.dailyFrequency.map((d) => d.count), 1);
+  const maxCount = Math.max(...stats.dailyFrequency.map((d) => d.count), 3);
   const donutData = useMemo(() => {
     const colors: Record<string, string> = {};
     Object.entries(MUSCLE_GROUPS).forEach(([k, v]) => {
@@ -262,18 +264,19 @@ export default function AnalyticsScreen() {
                         }} />
                       ))}
                     </View>
-                    {/* X-axis labels */}
+                    {/* X-axis labels — every 3 days, rotated 15° CCW */}
                     {points.map((p, i) => {
-                      const showLabel = i % 5 === 0 || i === N - 1;
+                      const showLabel = i % 3 === 0 || i === N - 1;
                       return showLabel ? (
                         <Text key={`lb_${i}`} style={{
                           position: 'absolute',
                           left: 38 + DOT_R + p.x - 20,
-                          top: CHART_H + 8,
+                          top: CHART_H + 6,
                           width: 40,
                           textAlign: 'center',
                           fontSize: 9,
                           color: '#888',
+                          transform: [{ rotate: '-15deg' }],
                         }}>{getWeekDate(p.date)}</Text>
                       ) : null;
                     })}

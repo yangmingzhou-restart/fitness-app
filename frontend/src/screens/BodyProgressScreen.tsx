@@ -201,18 +201,54 @@ export default function BodyProgressScreen() {
     ]);
   };
 
-  // Chart data: last 30 days
+  // Chart data: dynamic range based on actual entries (up to ~1 month)
   const chartData = useMemo(() => {
     const days: { date: string; label: string; value: number | null }[] = [];
     const today = new Date();
-    for (let i = 29; i >= 0; i--) {
-      const d = new Date(today);
-      d.setDate(d.getDate() - i);
-      const ds = fmtLocal(d);
-      const label = i === 0 ? '今天' : `${d.getMonth() + 1}/${d.getDate()}`;
-      days.push({ date: ds, label, value: null });
+
+    // Find the earliest entry date with data for the current chart mode
+    let earliestDate: string | null = null;
+    for (const e of entries) {
+      let hasValue = false;
+      switch (chartMode) {
+        case 'weight': hasValue = e.weightKg != null; break;
+        case 'bodyFat': hasValue = e.bodyFatPct != null; break;
+        case 'chest': hasValue = e.chestCm != null; break;
+        case 'waist': hasValue = e.waistCm != null; break;
+        case 'arm': hasValue = e.armCm != null; break;
+        case 'leg': hasValue = e.legCm != null; break;
+      }
+      if (hasValue && (!earliestDate || e.date < earliestDate)) {
+        earliestDate = e.date;
+      }
     }
-    // Fill in actual values based on chart mode
+
+    // Determine start: earliest entry (capped at 30 days back), or 30 days if no entries
+    let start: Date;
+    if (earliestDate) {
+      const thirtyDaysAgo = new Date(today);
+      thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+      const earliest = new Date(earliestDate);
+      start = earliest < thirtyDaysAgo ? thirtyDaysAgo : earliest;
+    } else {
+      start = new Date(today);
+      start.setDate(start.getDate() - 30);
+    }
+
+    // End at tomorrow for visual padding
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    let dayCount = 0;
+    for (let d = new Date(start); d <= tomorrow; d.setDate(d.getDate() + 1)) {
+      const ds = fmtLocal(d);
+      const isToday = ds === fmtLocal(today);
+      const label = isToday ? '今天' : `${d.getMonth() + 1}/${d.getDate()}`;
+      days.push({ date: ds, label, value: null });
+      dayCount++;
+    }
+
+    // Fill in actual values
     const valueMap = new Map<string, number>();
     entries.forEach((e) => {
       let v: number | null = null;
@@ -246,7 +282,7 @@ export default function BodyProgressScreen() {
     if (entries.length === 0) return null;
     const N = chartData.length;
     const DOT_R = 4;
-    const CHART_H = 120;
+    const CHART_H = 130;
     const STEP = Math.max(14, Math.floor((CHART_WIDTH - 70) / (N - 1)));
     const CHART_W = (N - 1) * STEP + DOT_R * 2;
     const points = chartData.map((day, i) => ({
@@ -254,7 +290,7 @@ export default function BodyProgressScreen() {
       y: CHART_H - ((day.value ?? chartMin) - chartMin) / (chartMax - chartMin) * CHART_H,
       value: day.value,
       label: day.label,
-      isToday: i === N - 1,
+      isToday: day.label === '今天',
     }));
     return { N, DOT_R, CHART_H, STEP, CHART_W, points };
   }, [chartData, chartMax, chartMin, entries.length]);
@@ -322,7 +358,7 @@ export default function BodyProgressScreen() {
                       <View key={`a_${i}`} style={{
                         position: 'absolute', left: p.x - chartContent.DOT_R, bottom: 0,
                         width: chartContent.STEP, height: p.value != null ? chartContent.CHART_H - p.y : 0,
-                        backgroundColor: p.value != null ? 'rgba(76,175,80,0.10)' : 'transparent',
+                        backgroundColor: p.value != null ? 'rgba(76,175,80,0.12)' : 'transparent',
                       }} />
                     ))}
                     {chartContent.points.slice(0, -1).map((p, i) => {
@@ -351,13 +387,14 @@ export default function BodyProgressScreen() {
                     ))}
                   </View>
                   {chartContent.points.map((p, i) => {
-                    if (i % 2 !== 0 && i !== chartContent.N - 1) return null;
+                    if (i % 3 !== 0 && i !== chartContent.N - 1) return null;
                     return (
                       <Text key={`lb_${i}`} style={{
-                        position: 'absolute', left: 38 + chartContent.DOT_R + p.x - 18,
-                        top: chartContent.CHART_H + 8, width: 36, textAlign: 'center',
+                        position: 'absolute', left: 38 + chartContent.DOT_R + p.x - 20,
+                        top: chartContent.CHART_H + 6, width: 40, textAlign: 'center',
                         fontSize: 9, color: p.isToday ? '#FF9800' : '#888',
                         fontWeight: p.isToday ? '600' : '400',
+                        transform: [{ rotate: '-15deg' }],
                       }}>{p.label}</Text>
                     );
                   })}

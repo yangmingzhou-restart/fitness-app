@@ -9,6 +9,7 @@ import type { RouteProp } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { VideoView, useVideoPlayer } from 'expo-video';
 import { getExerciseDetail, ExerciseInfo } from '../../services/api';
+import { getLocalExerciseById } from '../../data/exerciseData';
 import { MUSCLE_GROUPS } from '../../config/muscleGroups';
 import { API_BASE_URL } from '../../config/api';
 import type { RootStackParamList } from '../../navigation/AppNavigator';
@@ -55,6 +56,9 @@ export default function ExerciseDetailScreen() {
       const data = await getExerciseDetail(exerciseId);
       setExercise(data);
     } catch {
+      // Offline fallback — load from bundled JSON
+      const local = getLocalExerciseById(exerciseId);
+      if (local) setExercise(local);
     } finally {
       setLoading(false);
     }

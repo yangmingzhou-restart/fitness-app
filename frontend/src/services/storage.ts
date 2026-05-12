@@ -60,7 +60,15 @@ const FILES = {
   plans: 'plans.json',
   settings: 'settings.json',
   bodyStats: 'body_stats.json',
+  exerciseTimerSettings: 'exercise_timer_settings.json',
 };
+
+export interface ExerciseTimerSettings {
+  [exerciseName: string]: {
+    restSec: number;
+    alarmSec: number;
+  };
+}
 
 export interface BodyStatsEntry {
   id: string;
@@ -176,4 +184,14 @@ export async function saveBodyStat(entry: BodyStatsEntry): Promise<void> {
 export async function deleteBodyStat(id: string): Promise<void> {
   const entries = await getBodyStats();
   await writeJSON(FILES.bodyStats, entries.filter((e) => e.id !== id));
+}
+
+export async function getExerciseTimerSettings(): Promise<ExerciseTimerSettings> {
+  return (await readJSON<ExerciseTimerSettings>(FILES.exerciseTimerSettings)) || {};
+}
+
+export async function saveExerciseTimerSettings(name: string, restSec: number, alarmSec: number): Promise<void> {
+  const settings = await getExerciseTimerSettings();
+  settings[name] = { restSec, alarmSec };
+  await writeJSON(FILES.exerciseTimerSettings, settings);
 }

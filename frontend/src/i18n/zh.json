@@ -195,7 +195,8 @@
     "setComplete": "当前组是否结束？",
     "setCompleteHint": "请确认该组训练已完成，避免漏记训练组数",
     "confirmDone": "已结束",
-    "alarm": "闹钟"
+    "alarm": "闹钟",
+    "alarmDuration": "提醒时长"
   },
   "common": {
     "loading": "加载中...",

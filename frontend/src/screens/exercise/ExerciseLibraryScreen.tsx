@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import { getExercises, ExerciseInfo, ApiError } from '../../services/api';
+import { getLocalExercises } from '../../data/exerciseData';
 import { MUSCLE_GROUPS } from '../../config/muscleGroups';
 import { API_BASE_URL } from '../../config/api';
 import type { RootStackParamList } from '../../navigation/AppNavigator';
@@ -82,9 +83,15 @@ export default function ExerciseLibraryScreen() {
     try {
       const res = await getExercises();
       setExercises(res.exercises || []);
-    } catch (e) {
-      setError(true);
-      setErrorMsg(e instanceof ApiError ? e.getUserMessage() : t('exercise.loadError'));
+    } catch (_e) {
+      // Offline fallback — load from bundled JSON (no cover/video detection)
+      const local = getLocalExercises();
+      if (local.length > 0) {
+        setExercises(local);
+      } else {
+        setError(true);
+        setErrorMsg(t('exercise.loadError'));
+      }
     } finally {
       setLoading(false);
     }
