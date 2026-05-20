@@ -1,3 +1,4 @@
+import asyncio
 import json
 import logging
 from typing import List, Union
@@ -125,11 +126,13 @@ class QwenEngine(BaseEngine):
             )
 
         try:
-            response = client.chat.completions.create(
-                model="qwen3-vl-plus",
+            response = await asyncio.to_thread(
+                client.chat.completions.create,
+                model=settings.QWEN_MODEL,
                 messages=[{"role": "user", "content": content}],
                 temperature=0.1,
                 max_tokens=2048,
+                timeout=120.0,
             )
 
             raw_text = response.choices[0].message.content.strip()

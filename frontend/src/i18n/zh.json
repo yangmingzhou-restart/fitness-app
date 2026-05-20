@@ -196,10 +196,16 @@
     "setCompleteHint": "请确认该组训练已完成，避免漏记训练组数",
     "confirmDone": "已结束",
     "alarm": "闹钟",
-    "alarmDuration": "提醒时长"
+    "alarmDuration": "提醒时长",
+    "paused": "已暂停",
+    "pauseTraining": "暂停训练",
+    "resume": "继续",
+    "finishConfirmTitle": "确认结束",
+    "finishConfirmMessage": "确定要结束本次训练吗？计时将被重置"
   },
   "common": {
     "loading": "加载中...",
+    "timeout": "请求超时，请检查网络",
     "error": "出错了",
     "retry": "重试",
     "back": "返回",

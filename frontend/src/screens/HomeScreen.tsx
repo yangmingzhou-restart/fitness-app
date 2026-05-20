@@ -1,8 +1,10 @@
+import { useEffect } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import type { RootStackParamList } from '../navigation/AppNavigator';
+import { refreshBackendStatus } from '../services/api';
 
 interface FeatureCard {
   key: string;
@@ -16,6 +18,10 @@ interface FeatureCard {
 export default function HomeScreen() {
   const { t } = useTranslation();
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+  useEffect(() => {
+    refreshBackendStatus();
+  }, []);
 
   const features: FeatureCard[] = [
     {

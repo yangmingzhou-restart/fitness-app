@@ -27,6 +27,7 @@ export default function CameraScreen() {
   const { t } = useTranslation()
   const [permission, requestPermission] = useCameraPermissions()
   const cameraRef = useRef<CameraView>(null)
+  const photoCountRef = useRef(0)
   const [photos, setPhotos] = useState<string[]>([])
   const [loading, setLoading] = useState(false)
   const [showCamera, setShowCamera] = useState(true)
@@ -51,7 +52,7 @@ export default function CameraScreen() {
   }
 
   const takePhoto = async () => {
-    if (!cameraRef.current || photos.length >= MAX_PHOTOS) return
+    if (!cameraRef.current || photoCountRef.current >= MAX_PHOTOS) return
     try {
       const result = await cameraRef.current.takePictureAsync({
         quality: 0.9,
@@ -66,6 +67,7 @@ export default function CameraScreen() {
         )
         if (manipulated.base64) {
           console.log(`[timing] client compress: ${Date.now() - t0}ms, size: ${(manipulated.base64.length / 1024).toFixed(1)}KB`)
+          photoCountRef.current += 1
           setPhotos((prev) => [...prev, manipulated.base64!])
         }
         setShowCamera(false)
@@ -85,7 +87,7 @@ export default function CameraScreen() {
           return
         }
       }
-      const remaining = MAX_PHOTOS - photos.length
+      const remaining = MAX_PHOTOS - photoCountRef.current
       if (remaining <= 0) return
       const pickerResult = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ['images'],
@@ -105,6 +107,7 @@ export default function CameraScreen() {
             )
             if (manipulated.base64) {
               console.log(`[timing] gallery compress: ${Date.now() - t0}ms, size: ${(manipulated.base64.length / 1024).toFixed(1)}KB`)
+              photoCountRef.current += 1
               setPhotos((prev) => [...prev, manipulated.base64!])
             }
           }
@@ -121,6 +124,7 @@ export default function CameraScreen() {
   }
 
   const removeLastPhoto = () => {
+    photoCountRef.current = Math.max(0, photoCountRef.current - 1)
     setPhotos((prev) => {
       const next = prev.slice(0, -1)
       if (next.length === 0) setShowCamera(true)
@@ -129,6 +133,7 @@ export default function CameraScreen() {
   }
 
   const clearAllPhotos = () => {
+    photoCountRef.current = 0
     setPhotos([])
     setShowCamera(true)
   }

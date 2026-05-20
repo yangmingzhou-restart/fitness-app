@@ -8,6 +8,7 @@ import { getPlans, savePlan } from '../../services/storage';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import type { RootStackParamList } from '../../navigation/AppNavigator';
+import { setPendingPlan } from '../../services/planBridge';
 
 interface PlanExercise {
   exerciseName: string;
@@ -103,8 +104,8 @@ const MUSCLE_OPTIONS = [
   { key: 'back', label: '背' },
   { key: 'legs', label: '腿' },
   { key: 'shoulders', label: '肩' },
-  { key: 'arms', label: '手臂' },
-  { key: 'core', label: '腹' },
+  { key: 'arms', label: '臂' },
+  { key: 'core', label: '核心' },
 ];
 
 const genId = () => `plan_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
@@ -161,7 +162,20 @@ export default function PlanScreen() {
   };
 
   const handleStartWorkout = (plan: Plan) => {
+    if (!plan.exercises || plan.exercises.length === 0) {
+      Alert.alert(t('common.error'), t('exercise.notFound'));
+      return;
+    }
     const exerciseName = plan.exercises.map((e) => e.exerciseName).join('、');
+    setPendingPlan({
+      exerciseNames: exerciseName,
+      muscleGroup: plan.muscleGroup,
+      exercises: plan.exercises.map((e) => ({
+        exerciseName: e.exerciseName,
+        targetSets: e.targetSets,
+        targetReps: e.targetReps,
+      })),
+    });
     navigation.navigate('ExerciseRecord', {
       exerciseName,
       muscleGroup: plan.muscleGroup,

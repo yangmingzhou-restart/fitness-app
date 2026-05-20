@@ -33,7 +33,8 @@ export default function HistoryScreen() {
         setRecords(res.records)
         setTotal(res.total)
       }
-    } catch {
+    } catch (e) {
+      console.error('[HistoryScreen] loadHistory failed:', e);
     } finally {
       setLoading(false)
     }
@@ -52,7 +53,9 @@ export default function HistoryScreen() {
     let foods: any[] = []
     try {
       foods = JSON.parse(item.foods)
-    } catch {}
+    } catch (e) {
+      console.error('[HistoryScreen] JSON parse failed:', e);
+    }
 
     const foodNames = foods
       .map((f) => (i18n.language === 'zh' ? f.name : f.nameEn))

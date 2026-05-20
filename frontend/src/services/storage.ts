@@ -61,6 +61,7 @@ const FILES = {
   settings: 'settings.json',
   bodyStats: 'body_stats.json',
   exerciseTimerSettings: 'exercise_timer_settings.json',
+  deviceId: 'device_id.json',
 };
 
 export interface ExerciseTimerSettings {
@@ -132,17 +133,31 @@ export async function getExerciseRecordsByDate(date: string): Promise<ExerciseRe
   return records.filter((r) => r.date === date);
 }
 
+// Mutex to serialize exercise record writes — prevents concurrent
+// read-modify-write cycles from corrupting the records array.
+let _writeQueue: Promise<void> = Promise.resolve();
+
+function enqueueWrite(fn: () => Promise<void>): Promise<void> {
+  const task = _writeQueue.then(() => fn());
+  _writeQueue = task.catch(() => {});
+  return task;
+}
+
 export async function saveExerciseRecord(record: ExerciseRecord): Promise<void> {
-  const records = await getExerciseRecords();
-  const idx = records.findIndex((r) => r.id === record.id);
-  if (idx >= 0) records[idx] = record;
-  else records.push(record);
-  await writeJSON(FILES.exerciseRecords, records);
+  return enqueueWrite(async () => {
+    const records = await getExerciseRecords();
+    const idx = records.findIndex((r) => r.id === record.id);
+    if (idx >= 0) records[idx] = record;
+    else records.push(record);
+    await writeJSON(FILES.exerciseRecords, records);
+  });
 }
 
 export async function deleteExerciseRecord(id: string): Promise<void> {
-  const records = await getExerciseRecords();
-  await writeJSON(FILES.exerciseRecords, records.filter((r) => r.id !== id));
+  return enqueueWrite(async () => {
+    const records = await getExerciseRecords();
+    await writeJSON(FILES.exerciseRecords, records.filter((r) => r.id !== id));
+  });
 }
 
 export async function getPlans(): Promise<PlanTemplate[]> {
@@ -188,6 +203,20 @@ export async function deleteBodyStat(id: string): Promise<void> {
 
 export async function getExerciseTimerSettings(): Promise<ExerciseTimerSettings> {
   return (await readJSON<ExerciseTimerSettings>(FILES.exerciseTimerSettings)) || {};
+}
+
+function generateDeviceId(): string {
+  const t = Date.now().toString(36);
+  const r = Math.random().toString(36).slice(2, 10);
+  return `${t}-${r}`;
+}
+
+export async function getDeviceId(): Promise<string> {
+  const stored = await readJSON<{ id: string }>(FILES.deviceId);
+  if (stored?.id) return stored.id;
+  const id = generateDeviceId();
+  await writeJSON(FILES.deviceId, { id });
+  return id;
 }
 
 export async function saveExerciseTimerSettings(name: string, restSec: number, alarmSec: number): Promise<void> {

@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { View, Text, ScrollView, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { getExerciseRecords } from '../../services/storage';
 import DonutChart from '../../components/DonutChart';
@@ -137,22 +137,22 @@ export default function AnalyticsScreen() {
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       {/* Period toggle */}
       <View style={styles.periodRow}>
-        <View
+        <TouchableOpacity
           style={[styles.periodBtn, period === 'week' && styles.periodBtnActive]}
-          onTouchEnd={() => setPeriod('week')}
+          onPress={() => setPeriod('week')}
         >
           <Text style={[styles.periodText, period === 'week' && styles.periodTextActive]}>
             {t('analytics.week')}
           </Text>
-        </View>
-        <View
+        </TouchableOpacity>
+        <TouchableOpacity
           style={[styles.periodBtn, period === 'month' && styles.periodBtnActive]}
-          onTouchEnd={() => setPeriod('month')}
+          onPress={() => setPeriod('month')}
         >
           <Text style={[styles.periodText, period === 'month' && styles.periodTextActive]}>
             {t('analytics.month')}
           </Text>
-        </View>
+        </TouchableOpacity>
       </View>
 
       {/* Summary cards */}
@@ -183,8 +183,8 @@ export default function AnalyticsScreen() {
                   style={[
                     styles.bar,
                     {
-                      height: day.count > 0 ? Math.max((day.count / maxCount) * 120, 8) : 0,
-                      backgroundColor: day.count > 0 ? '#4CAF50' : '#e0e0e0',
+                      height: day.count > 0 ? Math.max((day.count / maxCount) * 120, 8) : 3,
+                      backgroundColor: day.count > 0 ? '#4CAF50' : '#ddd',
                     },
                   ]}
                 />

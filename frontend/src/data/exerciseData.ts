@@ -7,13 +7,12 @@ const rawExercises: any[] = require('./exercises.json');
 function buildCoverImage(exercise: any): string {
   const folder = exercise.name || exercise.id || '';
   if (!folder) return '';
-  return `/videos/${folder}/封面.png`;
+  return `/videos/${folder}/封面.jpg`;
 }
 
 function buildVideoUrls(exercise: any): { angle: string; url: string }[] {
   const folder = exercise.name || exercise.id || '';
   if (!folder) return [];
-  // Common camera angles — server will 404 if file doesn't exist
   const angles = ['侧面', '背面', '正面'];
   return angles.map((angle) => ({
     angle,

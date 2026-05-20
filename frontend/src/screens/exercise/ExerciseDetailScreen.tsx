@@ -16,6 +16,16 @@ import type { RootStackParamList } from '../../navigation/AppNavigator';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
+function buildMediaUri(relativePath: string): string {
+  if (!relativePath) return '';
+  const encoded = relativePath.includes('%') ? relativePath : encodeURI(relativePath);
+  return API_BASE_URL + encoded;
+}
+
+function isGifUrl(url: string): boolean {
+  return url.toLowerCase().endsWith('.gif');
+}
+
 export default function ExerciseDetailScreen() {
   const { t } = useTranslation();
   const route = useRoute<RouteProp<RootStackParamList, 'ExerciseDetail'>>();
@@ -66,12 +76,18 @@ export default function ExerciseDetailScreen() {
 
   useEffect(() => {
     if (!selectedVideo) return;
+    // GIFs are rendered as animated Image, not through the video player
+    if (isGifUrl(selectedVideo.url)) {
+      setVideoLoading(false);
+      setVideoError(false);
+      return;
+    }
     let cancelled = false;
     (async () => {
       setVideoLoading(true);
       setVideoError(false);
       try {
-        await player.replaceAsync({ uri: encodeURI(API_BASE_URL + selectedVideo.url) });
+        await player.replaceAsync({ uri: buildMediaUri(selectedVideo.url) });
         if (!cancelled) player.play();
       } catch {
         if (!cancelled) {
@@ -126,10 +142,17 @@ export default function ExerciseDetailScreen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.content}>
-        <Image
-          source={{ uri: exercise.coverImage ? encodeURI(API_BASE_URL + exercise.coverImage) : undefined }}
-          style={styles.cover}
-        />
+        {exercise.coverImage ? (
+          <Image
+            source={{ uri: buildMediaUri(exercise.coverImage) }}
+            style={styles.cover}
+            onError={() => {}}
+          />
+        ) : (
+          <View style={[styles.cover, styles.coverPlaceholder]}>
+            <Text style={styles.coverPlaceholderText}>🏋️</Text>
+          </View>
+        )}
 
         <View style={styles.infoSection}>
           <Text style={styles.name}>{exercise.name}</Text>
@@ -178,19 +201,29 @@ export default function ExerciseDetailScreen() {
             {selectedVideo && (
               <>
                 <Text style={styles.videoModalTitle}>{selectedVideo.angle}</Text>
-                {videoLoading && (
-                  <ActivityIndicator size="large" color="#4CAF50" style={styles.videoLoader} />
+                {isGifUrl(selectedVideo.url) ? (
+                  <Image
+                    source={{ uri: buildMediaUri(selectedVideo.url) }}
+                    style={styles.gifPlayer}
+                    resizeMode="contain"
+                  />
+                ) : (
+                  <>
+                    {videoLoading && (
+                      <ActivityIndicator size="large" color="#4CAF50" style={styles.videoLoader} />
+                    )}
+                    {videoError && (
+                      <View style={styles.videoErrorBox}>
+                        <Text style={styles.videoErrorText}>{t('exercise.videoError')}</Text>
+                      </View>
+                    )}
+                    <VideoView
+                      player={player}
+                      style={styles.videoPlayer}
+                      nativeControls
+                    />
+                  </>
                 )}
-                {videoError && (
-                  <View style={styles.videoErrorBox}>
-                    <Text style={styles.videoErrorText}>{t('exercise.videoError')}</Text>
-                  </View>
-                )}
-                <VideoView
-                  player={player}
-                  style={styles.videoPlayer}
-                  nativeControls
-                />
               </>
             )}
           </View>
@@ -229,6 +262,8 @@ const styles = StyleSheet.create({
   center: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   content: { paddingBottom: 80 },
   cover: { width: '100%', height: 250, backgroundColor: '#e0e0e0' },
+  coverPlaceholder: { justifyContent: 'center', alignItems: 'center' },
+  coverPlaceholderText: { fontSize: 48 },
   infoSection: { padding: 16, backgroundColor: '#fff' },
   name: { fontSize: 22, fontWeight: 'bold', color: '#333' },
   nameEn: { fontSize: 15, color: '#999', marginTop: 4 },
@@ -297,6 +332,11 @@ const styles = StyleSheet.create({
     zIndex: 9,
   },
   videoPlayer: {
+    width: SCREEN_WIDTH,
+    height: SCREEN_WIDTH * 0.75,
+    backgroundColor: '#000',
+  },
+  gifPlayer: {
     width: SCREEN_WIDTH,
     height: SCREEN_WIDTH * 0.75,
     backgroundColor: '#000',

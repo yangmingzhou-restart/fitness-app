@@ -1,10 +1,14 @@
 import json
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 from pydantic import BaseModel, Field
 from typing import List, Optional
 from database.crud_exercise import save_plan, get_plans
 
 router = APIRouter()
+
+
+def _get_user_id(request: Request) -> str:
+    return request.headers.get("X-User-Id", "default")
 
 
 class PlanExercise(BaseModel):
@@ -24,9 +28,11 @@ class PlanRequest(BaseModel):
 
 
 @router.post("/plans")
-async def create_plan(plan: PlanRequest):
+async def create_plan(plan: PlanRequest, request: Request):
+    user_id = _get_user_id(request)
     exercises_json = json.dumps([e.model_dump() for e in plan.exercises], ensure_ascii=False)
-    save_plan(
+    await save_plan(
+        user_id=user_id,
         plan_id=plan.id,
         name=plan.name,
         name_en=plan.name_en,
@@ -37,6 +43,7 @@ async def create_plan(plan: PlanRequest):
 
 
 @router.get("/plans")
-async def list_plans():
-    plans = get_plans()
+async def list_plans(request: Request):
+    user_id = _get_user_id(request)
+    plans = await get_plans(user_id)
     return {"plans": plans}

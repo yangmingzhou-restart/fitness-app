@@ -1,9 +1,11 @@
+import { useState, useEffect } from 'react';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Text, TouchableOpacity, StyleSheet, View } from 'react-native';
+import { Text, TouchableOpacity, StyleSheet, View, StatusBar, Platform } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import i18n from '../i18n';
+import { workoutTimer } from '../services/workoutTimer';
 import CameraScreen from '../screens/CameraScreen';
 import ResultScreen from '../screens/ResultScreen';
 import HistoryScreen from '../screens/HistoryScreen';
@@ -23,7 +25,7 @@ export type RootStackParamList = {
   Result: { result: AnalysisResult; timing?: TimingInfo };
   ExerciseLibrary: undefined;
   ExerciseDetail: { exerciseId: string; exerciseName: string };
-  ExerciseRecord: { exerciseName?: string; muscleGroup?: string };
+  ExerciseRecord: { exerciseName?: string; muscleGroup?: string; planExercises?: Array<{ exerciseName: string; targetSets: number; targetReps: string }> };
   Plan: undefined;
   Barcode: undefined;
   BodyProgress: undefined;
@@ -123,17 +125,52 @@ function TabNavigator() {
   );
 }
 
+function formatTimer(totalSec: number) {
+  const m = Math.floor(totalSec / 60);
+  const s = totalSec % 60;
+  return `${m}:${s.toString().padStart(2, '0')}`;
+}
+
+function GlobalTimerBar() {
+  const [, setTick] = useState(0);
+
+  useEffect(() => {
+    const unsub = workoutTimer.subscribe(() => setTick((t) => t + 1));
+    return unsub;
+  }, []);
+
+  if (workoutTimer.state === 'idle') return null;
+
+  const elapsed = workoutTimer.getElapsedSec();
+  const stateLabels: Record<string, string> = {
+    active: '训练中',
+    resting: '休息',
+    alarm: '闹钟',
+    paused: '暂停',
+  };
+
+  return (
+    <View style={navStyles.timerBar}>
+      <Text style={navStyles.timerText}>
+        {stateLabels[workoutTimer.state] || workoutTimer.state} · {formatTimer(elapsed)}
+      </Text>
+    </View>
+  );
+}
+
 export default function AppNavigator() {
   const { t } = useTranslation();
 
   return (
     <View style={styles.container}>
+      <GlobalTimerBar />
       <NavigationContainer theme={DarkTheme}>
         <Stack.Navigator
           screenOptions={{
             headerStyle: { backgroundColor: '#1a1a1a' },
             headerTintColor: '#fff',
-            headerTitleStyle: { fontSize: 18, fontWeight: '700' },
+            headerTitleStyle: { fontSize: 17, fontWeight: '700' },
+            headerBackTitle: '',
           }}
         >
           <Stack.Screen
@@ -210,6 +247,22 @@ export default function AppNavigator() {
     </View>
   );
 }
+
+const STATUS_BAR_HEIGHT = Platform.OS === 'android' ? (StatusBar.currentHeight || 24) : 44;
+
+const navStyles = StyleSheet.create({
+  timerBar: {
+    backgroundColor: '#4CAF50',
+    paddingTop: STATUS_BAR_HEIGHT + 4,
+    paddingBottom: 2,
+    alignItems: 'center',
+  },
+  timerText: {
+    color: '#fff',
+    fontSize: 11,
+    fontWeight: '600',
+  },
+});
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#000' },

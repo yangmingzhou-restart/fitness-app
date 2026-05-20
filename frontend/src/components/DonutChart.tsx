@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
+import Svg, { Circle } from 'react-native-svg';
 
 interface Segment {
   label: string;
@@ -16,13 +17,26 @@ export default function DonutChart({ data, size }: Props) {
   const strokeWidth = 24;
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
+  const center = size / 2;
 
   if (total === 0) {
     return (
       <View style={styles.wrap}>
         <View style={[styles.chart, { width: size, height: size }]}>
-          <View style={[styles.ring, { width: size, height: size, borderRadius: size / 2, borderWidth: strokeWidth }]} />
-          <Text style={styles.centerText}>0</Text>
+          <Svg width={size} height={size}>
+            <Circle
+              cx={center}
+              cy={center}
+              r={radius}
+              stroke="#e0e0e0"
+              strokeWidth={strokeWidth}
+              fill="none"
+            />
+          </Svg>
+          <View style={styles.centerWrap}>
+            <Text style={styles.centerValue}>0</Text>
+            <Text style={styles.centerUnit}>sets</Text>
+          </View>
         </View>
       </View>
     );
@@ -33,42 +47,35 @@ export default function DonutChart({ data, size }: Props) {
     const ratio = d.value / total;
     const start = cumulative;
     cumulative += ratio;
-    return { ...d, ratio, start, end: cumulative };
+    return { ...d, ratio, dashLength: circumference * ratio, offset: circumference * (1 - start) };
   });
 
   return (
     <View style={styles.wrap}>
       <View style={[styles.chart, { width: size, height: size }]}>
-        {segments.map((seg, i) => {
-          const dashLength = circumference * seg.ratio;
-          const gapLength = circumference - dashLength;
-          const offset = -(circumference * seg.start);
-          return (
-            <View
+        <Svg width={size} height={size}>
+          {segments.map((seg, i) => (
+            <Circle
               key={i}
-              style={[
-                styles.ring,
-                {
-                  width: size,
-                  height: size,
-                  borderRadius: size / 2,
-                  borderWidth: strokeWidth,
-                  borderColor: 'transparent',
-                  borderTopColor: seg.color,
-                  borderRightColor: seg.color,
-                  borderBottomColor: seg.color,
-                  transform: [{ rotate: `${offset / circumference * 360}deg` }],
-                },
-              ]}
+              cx={center}
+              cy={center}
+              r={radius}
+              stroke={seg.color}
+              strokeWidth={strokeWidth}
+              strokeDasharray={`${seg.dashLength} ${circumference - seg.dashLength}`}
+              strokeDashoffset={seg.offset}
+              strokeLinecap="butt"
+              fill="none"
+              rotation={-90}
+              origin={`${center}, ${center}`}
             />
-          );
-        })}
+          ))}
+        </Svg>
         <View style={styles.centerWrap}>
           <Text style={styles.centerValue}>{total}</Text>
           <Text style={styles.centerUnit}>sets</Text>
         </View>
       </View>
-      {/* Legend */}
       <View style={styles.legend}>
         {data.map((d, i) => (
           <View key={i} style={styles.legendItem}>
@@ -87,16 +94,10 @@ const styles = StyleSheet.create({
   chart: {
     justifyContent: 'center',
     alignItems: 'center',
-    position: 'relative',
   },
-  ring: {
-    position: 'absolute',
-    borderStyle: 'solid',
-  },
-  centerWrap: { alignItems: 'center' },
+  centerWrap: { position: 'absolute', alignItems: 'center' },
   centerValue: { fontSize: 32, fontWeight: 'bold', color: '#333' },
   centerUnit: { fontSize: 12, color: '#888' },
-  centerText: { fontSize: 24, fontWeight: 'bold', color: '#ccc' },
   legend: {
     flexDirection: 'row',
     flexWrap: 'wrap',

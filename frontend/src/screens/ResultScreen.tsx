@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import {
   View, Text, ScrollView, TouchableOpacity, StyleSheet,
 } from 'react-native';
@@ -11,6 +11,10 @@ import ServingSelector from '../components/ServingSelector';
 import { saveFoodRecord } from '../services/storage';
 import { Macros } from '../services/api';
 
+function generateId(): string {
+  return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+}
+
 export default function ResultScreen() {
   const navigation = useNavigation();
   const route = useRoute<RouteProp<RootStackParamList, 'Result'>>();
@@ -20,6 +24,20 @@ export default function ResultScreen() {
   const isZh = i18n.language === 'zh';
   const [servings, setServings] = useState(1);
   const [showDetails, setShowDetails] = useState(false);
+  const savedRef = useRef(false);
+
+  useEffect(() => {
+    if (savedRef.current) return;
+    savedRef.current = true;
+    saveFoodRecord({
+      id: generateId(),
+      imageThumbnail: '',
+      foods: result.foods,
+      totalCalories: result.totalEstimatedCalories,
+      totalMacros: result.totalMacros || null,
+      createdAt: new Date().toISOString(),
+    }).catch(() => {});
+  }, []);
 
   const multiplier = servings;
 

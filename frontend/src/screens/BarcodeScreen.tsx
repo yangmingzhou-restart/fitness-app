@@ -22,6 +22,17 @@ interface ProductInfo {
 const OFF_SEARCH = 'https://cn.openfoodfacts.org/cgi/search.pl?search_simple=1&json=1&page_size=20&lc=zh';
 const OFF_PRODUCT = 'https://cn.openfoodfacts.org/api/v2/product';
 const OFF_SEARCH_FALLBACK = 'https://world.openfoodfacts.org/cgi/search.pl?search_simple=1&json=1&page_size=20&lc=zh';
+const FETCH_TIMEOUT_MS = 10000;
+
+async function fetchWithTimeout(url: string, timeoutMs: number = FETCH_TIMEOUT_MS): Promise<Response> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    return await fetch(url, { signal: controller.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+}
 
 function parseProduct(data: any): ProductInfo | null {
   const p = data?.product;
@@ -62,7 +73,7 @@ export default function BarcodeScreen() {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch(`${OFF_PRODUCT}/${barcode}.json`);
+      const res = await fetchWithTimeout(`${OFF_PRODUCT}/${barcode}.json`);
       const data = await res.json();
       const info = parseProduct(data);
       if (info) {
@@ -72,8 +83,12 @@ export default function BarcodeScreen() {
       } else {
         setError(t('barcode.notFound'));
       }
-    } catch {
-      setError(t('common.error'));
+    } catch (e: any) {
+      if (e?.name === 'AbortError') {
+        setError(t('common.timeout'));
+      } else {
+        setError(t('common.error'));
+      }
     } finally {
       setLoading(false);
       setTimeout(() => { scannedRef.current = false; }, 3000);
@@ -87,15 +102,19 @@ export default function BarcodeScreen() {
     try {
       const q = encodeURIComponent(searchQuery.trim());
       // Try Chinese mirror first, fallback to global
-      let res = await fetch(`${OFF_SEARCH}&search_terms=${q}`);
+      let res = await fetchWithTimeout(`${OFF_SEARCH}&search_terms=${q}`);
       let data = await res.json();
       if (!data.products || data.products.length === 0) {
-        res = await fetch(`${OFF_SEARCH_FALLBACK}&search_terms=${q}`);
+        res = await fetchWithTimeout(`${OFF_SEARCH_FALLBACK}&search_terms=${q}`);
         data = await res.json();
       }
       setSearchResults(data.products || []);
-    } catch {
-      setError(t('common.error'));
+    } catch (e: any) {
+      if (e?.name === 'AbortError') {
+        setError(t('common.timeout'));
+      } else {
+        setError(t('common.error'));
+      }
     } finally {
       setSearching(false);
     }

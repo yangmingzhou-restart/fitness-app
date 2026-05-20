@@ -6,7 +6,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
-import { getExercises, ExerciseInfo, ApiError } from '../../services/api';
+import { getExercises, ExerciseInfo, ApiError, isBackendReachable, refreshBackendStatus } from '../../services/api';
 import { getLocalExercises } from '../../data/exerciseData';
 import { MUSCLE_GROUPS } from '../../config/muscleGroups';
 import { API_BASE_URL } from '../../config/api';
@@ -80,21 +80,45 @@ export default function ExerciseLibraryScreen() {
     setError(false);
     setErrorMsg('');
     setLoading(true);
+
+    // Load local data immediately so user sees content without waiting
+    let localData: ExerciseInfo[] = [];
+    try { localData = getLocalExercises(); } catch {}
+    if (localData.length > 0) {
+      setExercises(localData);
+      setLoading(false);
+    }
+
+    // Try backend API in background to get latest data
     try {
-      const res = await getExercises();
-      setExercises(res.exercises || []);
-    } catch (_e) {
-      // Offline fallback — load from bundled JSON (no cover/video detection)
-      const local = getLocalExercises();
-      if (local.length > 0) {
-        setExercises(local);
+      if (isBackendReachable()) {
+        const res = await getExercises();
+        if (res.exercises?.length) setExercises(res.exercises);
       } else {
+        const reachable = await refreshBackendStatus();
+        if (reachable) {
+          const res = await getExercises();
+          if (res.exercises?.length) setExercises(res.exercises);
+        }
+      }
+    } catch (_e) {
+      if (localData.length === 0) {
         setError(true);
         setErrorMsg(t('exercise.loadError'));
       }
     } finally {
       setLoading(false);
     }
+  };
+
+  const fuzzyMatch = (text: string, query: string): boolean => {
+    let ti = 0;
+    for (let qi = 0; qi < query.length; qi++) {
+      while (ti < text.length && text[ti] !== query[qi]) ti++;
+      if (ti >= text.length) return false;
+      ti++;
+    }
+    return true;
   };
 
   const filtered = useMemo(() => {
@@ -106,9 +130,10 @@ export default function ExerciseLibraryScreen() {
       const q = search.trim().toLowerCase();
       result = result.filter(
         (e) =>
-          e.name.includes(q) ||
+          e.name.toLowerCase().includes(q) ||
           e.nameEn.toLowerCase().includes(q) ||
-          e.muscleGroup.includes(q)
+          fuzzyMatch(e.name.toLowerCase(), q) ||
+          fuzzyMatch(e.nameEn.toLowerCase(), q)
       );
     }
     return result;
@@ -202,6 +227,11 @@ export default function ExerciseLibraryScreen() {
         windowSize={5}
         getItemLayout={getItemLayout}
         initialNumToRender={20}
+        ListEmptyComponent={
+          <View style={styles.emptyResult}>
+            <Text style={styles.emptyResultText}>{t('exercise.notFound')}</Text>
+          </View>
+        }
       />
     </View>
   );
@@ -272,4 +302,6 @@ const styles = StyleSheet.create({
   },
   badgeText: { fontSize: 11, fontWeight: '600' },
   difficulty: { fontSize: 11, color: '#888' },
+  emptyResult: { alignItems: 'center', paddingVertical: 60 },
+  emptyResultText: { fontSize: 15, color: '#999' },
 });

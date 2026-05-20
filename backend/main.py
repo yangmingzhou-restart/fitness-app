@@ -37,8 +37,8 @@ def get_lan_ip() -> str:
 
 # ---- Security Settings ----
 ALLOWED_IPS = None #{"10.70.230.216", "127.0.0.1", "::1"}
-BASIC_AUTH_USER = "test"
-BASIC_AUTH_PASS = "ymzandcmftest"
+BASIC_AUTH_USER = settings.BASIC_AUTH_USER
+BASIC_AUTH_PASS = settings.BASIC_AUTH_PASS
 PUBLIC_PATHS = {"/health", "/"}
 PUBLIC_PREFIXES = {"/videos/"}
 
@@ -46,13 +46,15 @@ PUBLIC_PREFIXES = {"/videos/"}
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("正在初始化数据库...")
-    init_db()
+    await init_db()
     logger.info("数据库初始化完成")
     lan_ip = get_lan_ip()
     logger.info(f"本机局域网 IP: {lan_ip}")
     logger.info(f"前端 API 地址: http://{lan_ip}:{settings.SERVER_PORT}")
     logger.info(f"健康检查: http://{lan_ip}:{settings.SERVER_PORT}/health")
     yield
+    from database.connection import close_db
+    await close_db()
 
 
 app = FastAPI(
@@ -138,6 +140,11 @@ import os
 videos_path = os.path.join(os.path.dirname(__file__), "TrainingVideos")
 if os.path.isdir(videos_path):
     app.mount("/videos", StaticFiles(directory=videos_path), name="videos")
+
+
+@app.get("/favicon.ico")
+async def favicon():
+    return Response(status_code=204)
 
 
 @app.get("/")

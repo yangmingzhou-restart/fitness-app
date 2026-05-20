@@ -196,10 +196,16 @@
     "setCompleteHint": "Please confirm this set is done to avoid missing records",
     "confirmDone": "Done",
     "alarm": "Alarm",
-    "alarmDuration": "Alarm Duration"
+    "alarmDuration": "Alarm Duration",
+    "paused": "Paused",
+    "pauseTraining": "Pause Workout",
+    "resume": "Resume",
+    "finishConfirmTitle": "Confirm Finish",
+    "finishConfirmMessage": "End this workout? The timer will be reset"
   },
   "common": {
     "loading": "Loading...",
+    "timeout": "Request timeout, check network",
     "error": "Error",
     "retry": "Retry",
     "back": "Back",

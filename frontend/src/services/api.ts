@@ -1,5 +1,19 @@
 import { ENDPOINTS } from '../config/api';
 import { logger } from '../utils/logger';
+import { getDeviceId } from './storage';
+
+let _deviceId: string | null = null;
+
+async function ensureDeviceId(): Promise<string> {
+  if (!_deviceId) {
+    _deviceId = await getDeviceId();
+  }
+  return _deviceId;
+}
+
+export function getCachedDeviceId(): string | null {
+  return _deviceId;
+}
 
 export interface Macros {
   proteinG: number;
@@ -148,10 +162,12 @@ async function apiFetch<T>(
     const timer = setTimeout(() => controller.abort(), timeoutMs);
 
     try {
+      const deviceId = await ensureDeviceId();
       const response = await fetch(url, {
         ...options,
         headers: {
           ...getAuthHeaders(),
+          'X-User-Id': deviceId,
           ...(options.headers as Record<string, string> || {}),
         },
         signal: controller.signal,
@@ -186,6 +202,7 @@ async function apiFetch<T>(
       } else if (e.name === 'AbortError') {
         lastError = new ApiError('timeout', `Request timeout after ${timeoutMs}ms`);
         logger.error('api', `请求超时 (${timeoutMs}ms): ${url.split('/').pop()}`);
+        backendReachable = false;
       } else {
         const errorType = classifyNetworkError(e.message || '');
         lastError = new ApiError(errorType, e.message || 'Network request failed');
@@ -249,13 +266,14 @@ export async function getExercises(params?: {
     const qs = sp.toString();
     if (qs) url += '?' + qs;
   }
-  return apiFetch<{ exercises: ExerciseInfo[] }>(url);
+  // Short timeout — local fallback is available if offline
+  return apiFetch<{ exercises: ExerciseInfo[] }>(url, {}, 10000, 0);
 }
 
 export async function getExerciseDetail(
   id: string
 ): Promise<ExerciseInfo> {
-  return apiFetch<ExerciseInfo>(`${ENDPOINTS.EXERCISES}/${encodeURIComponent(id)}`);
+  return apiFetch<ExerciseInfo>(`${ENDPOINTS.EXERCISES}/${encodeURIComponent(id)}`, {}, 10000, 0);
 }
 
 export async function saveExerciseRecord(record: {
@@ -270,7 +288,18 @@ export async function saveExerciseRecord(record: {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(record),
-  });
+  }, 15000, 1);
+}
+
+export async function deleteExerciseRecord(
+  recordId: string
+): Promise<{ success: boolean }> {
+  return apiFetch<{ success: boolean }>(
+    `${ENDPOINTS.EXERCISE_RECORDS}/${encodeURIComponent(recordId)}`,
+    { method: 'DELETE' },
+    15000,
+    1
+  );
 }
 
 export async function getExerciseRecords(params?: {
@@ -287,7 +316,7 @@ export async function getExerciseRecords(params?: {
     const qs = sp.toString();
     if (qs) url += '?' + qs;
   }
-  return apiFetch<{ records: ExerciseRecordResponse[] }>(url);
+  return apiFetch<{ records: ExerciseRecordResponse[] }>(url, {}, 15000, 1);
 }
 
 export async function getAnalyticsSummary(
@@ -295,7 +324,10 @@ export async function getAnalyticsSummary(
   end: string
 ): Promise<AnalyticsSummary> {
   return apiFetch<AnalyticsSummary>(
-    `${ENDPOINTS.ANALYTICS}?start=${start}&end=${end}`
+    `${ENDPOINTS.ANALYTICS}?start=${start}&end=${end}`,
+    {},
+    15000,
+    1
   );
 }
 
@@ -307,23 +339,56 @@ export interface HealthCheckResult {
 }
 
 export async function checkHealth(): Promise<HealthCheckResult> {
+  const url = ENDPOINTS.HEALTH;
   const t0 = Date.now();
   try {
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 8000);
-    const response = await fetch(ENDPOINTS.HEALTH, { signal: controller.signal });
+    const timer = setTimeout(() => controller.abort(), 5000);
+    const response = await fetch(url, { signal: controller.signal });
     clearTimeout(timer);
     const latencyMs = Date.now() - t0;
     if (response.ok) {
-      logger.info('api', `健康检查成功 (${latencyMs}ms)`);
+      logger.info('api', `健康检查成功 (${latencyMs}ms) → ${url}`);
+      backendReachable = true;
+      healthFailStreak = 0;
       return { ok: true, latencyMs };
     }
+    backendReachable = false;
     return { ok: false, error: `Server returned ${response.status}`, errorType: 'server', latencyMs };
   } catch (e: any) {
+    backendReachable = false;
     const errorType = e.name === 'AbortError'
       ? 'timeout'
       : classifyNetworkError(e.message || '');
-    logger.warn('api', `健康检查失败 [${errorType}]: ${e.message}`);
+    healthFailStreak++;
+    if (healthFailStreak <= 1) {
+      logger.warn('api', `健康检查失败 [${errorType}] → ${url}: ${e.message}`);
+    } else {
+      logger.info('api', `健康检查失败 #${healthFailStreak} [${errorType}] → ${url}`);
+    }
     return { ok: false, error: e.message, errorType, latencyMs: Date.now() - t0 };
   }
+}
+
+// Backend connectivity cache — skip sync when backend is known to be down.
+// Start false so no request fires before the first health check succeeds.
+let backendReachable = false;
+let lastHealthCheck = 0;
+let healthFailStreak = 0;
+
+function healthCheckBackoffMs(): number {
+  // Exponential backoff: 30s → 60s → 120s → 240s → 300s (capped)
+  return Math.min(30000 * Math.pow(2, healthFailStreak - 1), 300000);
+}
+
+export function isBackendReachable(): boolean {
+  return backendReachable;
+}
+
+export async function refreshBackendStatus(): Promise<boolean> {
+  const minInterval = backendReachable ? 30000 : healthCheckBackoffMs();
+  if (Date.now() - lastHealthCheck < minInterval) return backendReachable;
+  lastHealthCheck = Date.now();
+  const result = await checkHealth();
+  return result.ok;
 }
